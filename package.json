@@ -24,10 +24,12 @@
   "devDependencies": {
     "@commitlint/cli": "^17.7.2",
     "@commitlint/config-conventional": "^17.7.0",
+    "cross-env": "^7.0.3",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",
     "standard-version": "^9.5.0",
     "ts-node": "^10.9.1"
@@ -41,7 +43,14 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:staged": "cross-env CI=true react-scripts test --env=jsdom --bail --findRelatedTests",
+    "lint": "eslint src --fix",
     "eject": "react-scripts eject"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "npm run test:staged"
+    ]
   },
   "browserslist": {
     "production": [
