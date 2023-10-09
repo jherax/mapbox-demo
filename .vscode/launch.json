@@ -1,0 +1,53 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Debug CRA Server",
+      "url": "http://localhost:3000",
+      // "preLaunchTask": "start",
+      "webRoot": "${workspaceRoot}/src",
+      "userDataDir": "${workspaceRoot}/.vscode/chrome",
+      "sourceMapPathOverrides": {
+        "webpack:///src/*": "${webRoot}/*"
+      }
+    },
+    {
+      "name": "Debug CRA Tests",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/react-scripts",
+      "args": ["test", "--runInBand", "--no-cache", "--watchAll=false"],
+      "cwd": "${workspaceRoot}",
+      "protocol": "inspector",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "env": {"CI": "true"},
+      "disableOptimisticBPs": true
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Node: Current File",
+      "program": "${workspaceFolder}/${relativeFile}",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": []
+    },
+    {
+      "name": "TS: Current File",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["--nolazy", "-r", "ts-node/register/transpile-only"],
+      "args": ["${workspaceFolder}/${relativeFile}"],
+      "cwd": "${workspaceRoot}",
+      "internalConsoleOptions": "openOnSessionStart",
+      "skipFiles": ["<node_internals>/**", "node_modules/**"],
+      "env": {
+        "TS_NODE_COMPILER_OPTIONS": "{\"module\":\"commonjs\"}"
+      }
+    }
+  ]
+}
