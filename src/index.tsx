@@ -1,16 +1,33 @@
+import './index.css';
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Outlet,
+  Route,
+  RouterProvider,
+} from 'react-router-dom';
+
 import reportWebVitals from './reportWebVitals';
+import Rentalscape from './views/Rentalscape';
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path='/' element={<Outlet />}>
+      <Route path='' element={<Rentalscape />} />
+    </Route>,
+  ),
+);
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById('root') as HTMLElement,
 );
 root.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>,
 );
 
 // If you want to start measuring performance in your app, pass a function
