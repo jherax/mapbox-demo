@@ -18,12 +18,14 @@ import {
 
 import config from './config/app.cfg';
 import reportWebVitals from './reportWebVitals';
+import Applicant from './views/Applicant';
 import Rentalscape from './views/Rentalscape';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Outlet />}>
       <Route path='' element={<Rentalscape />} />
+      <Route path='applicant' element={<Applicant />} />
     </Route>,
   ),
 );
