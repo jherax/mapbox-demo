@@ -1,7 +1,11 @@
+import {useQuery} from '@apollo/client';
 import styled from 'styled-components';
 
 import Mapbox from '../../components/Mapbox';
 import Sidebar from '../../components/Sidebar';
+import logger from '../../utils/logger';
+import ResolveView from '../ResolveView';
+import {REGION_CONFIG} from './services/getRegionConfig';
 
 const Wrapper = styled.div`
   display: flex;
@@ -19,10 +23,18 @@ const Wrapper = styled.div`
 `;
 
 function Rentalscape() {
+  const {data, loading, error} = useQuery(REGION_CONFIG.query, {
+    variables: REGION_CONFIG.variables,
+  });
+
+  logger.info({loading: loading, data: data, error: error});
+
   return (
-    <Wrapper data-testid='main_wrapper'>
-      <Sidebar></Sidebar>
-      <Mapbox></Mapbox>
+    <Wrapper>
+      <ResolveView loading={loading} error={error}>
+        <Sidebar></Sidebar>
+        <Mapbox></Mapbox>
+      </ResolveView>
     </Wrapper>
   );
 }

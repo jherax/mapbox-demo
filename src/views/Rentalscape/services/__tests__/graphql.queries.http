@@ -1,0 +1,164 @@
+### DOCS: https://github.com/Huachao/vscode-restclient#making-graphql-request
+
+@baseUrl = https://fxjney46mbeijjyti3ysri6afi.appsync-api.us-west-2.amazonaws.com/graphql
+@auth_token = {{$dotenv REACT_APP_AUTH_TOKEN}}
+
+
+######################
+### LIST REGIONS
+# @name GetRegionNames
+
+POST {{ baseUrl }}
+Content-Type: application/json
+Authorization: Bearer {{ auth_token }}
+X-REQUEST-TYPE: GraphQL
+
+query GetRegionNames {
+  listRegions {
+    items {
+      name
+      regionShortName
+    }
+  }
+}
+
+
+#######################
+### GET REGION CONFIG
+# @name GetRegionConfig
+
+POST {{ baseUrl }}
+Content-Type: application/json
+Authorization: Bearer {{ auth_token }}
+X-REQUEST-TYPE: GraphQL
+
+query GetRegionConfig($regionShortName: String!) {
+  region: regionByShortName(regionShortName: $regionShortName) {
+    items {
+      regionName
+      name
+      logo
+      misc
+      geoJson
+      legends {
+        ...LegendData
+      }
+      statistics {
+        ...StatData
+      }
+      links {
+        ...LinkData
+      }
+    }
+  }
+}
+fragment LegendData on Legend {
+  colorHex
+  count
+  formattedText
+  tooltip
+  propertyType
+}
+fragment StatData on RegionStatistic {
+  type
+  value
+}
+fragment LinkData on Link {
+  displayValue
+  label
+  tooltip
+  type
+  value
+}
+
+### variables
+{
+  "regionShortName": "placer-ca"
+}
+
+
+#####################
+### GET PROPERTIES
+# @name GetProperties
+
+POST {{ baseUrl }}
+Content-Type: application/json
+Authorization: Bearer {{ auth_token }}
+X-REQUEST-TYPE: GraphQL
+
+query GetProperties($regionId: String!, $nextToken: String) {
+  region: getRegion(regionName: $regionId) {
+    properties(
+      limit: 2000
+      nextToken: $nextToken
+      filter: { address: { size: { gt: 0 } } } #
+    ) {
+      nextToken
+      items {
+        ...PropertyFragment
+      }
+    }
+  }
+}
+fragment PropertyFragment on Property {
+  deckardId
+  displayInfo {
+    label
+    value
+  }
+  isLicensed
+  types
+  geo {
+    lat
+    lng
+  }
+  geo5
+  address
+  contact {
+    ...PropertyContactInfo
+  }
+  licenses {
+    items {
+      ...LicenseInfo
+    }
+  }
+  listings {
+    items {
+      ...ListingInfo
+    }
+  }
+}
+fragment PropertyContactInfo on PropertyContact {
+  name
+  phone
+  email
+  company
+}
+fragment LicenseInfo on License {
+  license_id
+  propertyLicensesId
+  num_bedrooms
+  num_vehicles
+  occupancy
+  status
+  contacts {
+    ...LicenseContactFragment
+  }
+}
+fragment LicenseContactFragment on LicenseContact {
+  type
+  name
+  phone
+  email
+  company
+}
+fragment ListingInfo on Listing {
+  active
+  verified
+  imageUrls
+}
+
+### variables
+{
+  "regionId": "ca-placer"
+}
