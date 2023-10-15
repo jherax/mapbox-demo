@@ -46,3 +46,31 @@ export const REGION_CONFIG = {
   },
   operationName: 'GetRegionConfig',
 };
+
+export type RegionConfigResponse = {
+  region: {
+    items: Array<{
+      regionName: string;
+      name: string;
+      logo: string;
+      misc: string;
+      geoJson: string;
+
+      legends: Array<{
+        colorHex: string;
+        count: number;
+        formattedText: string;
+        tooltip: string;
+        propertyType: string;
+      }>;
+
+      links: Array<{
+        displayValue: string;
+        label: string;
+        tooltip: string;
+        type: string;
+        value: string;
+      }>;
+    }>;
+  };
+};

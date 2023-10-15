@@ -28,6 +28,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.7.2",
     "@commitlint/config-conventional": "^17.7.0",
+    "@types/styled-components": "^5.1.28",
     "cross-env": "^7.0.3",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-react": "^7.33.2",

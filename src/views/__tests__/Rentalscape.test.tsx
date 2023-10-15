@@ -32,6 +32,6 @@ describe('Testing <Rentalscape />', () => {
     );
 
     expect(await screen.findByText('Loading...')).toBeInTheDocument();
-    expect(await screen.findByText('Mapbox')).toBeInTheDocument();
+    expect(await screen.findByText('PUBLIC PORTAL')).toBeInTheDocument();
   });
 });
