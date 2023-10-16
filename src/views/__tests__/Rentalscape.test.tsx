@@ -11,6 +11,7 @@ jest.spyOn(logger, 'info').mockImplementation(jest.fn());
  * @see https://www.apollographql.com/docs/react/development-testing/testing
  */
 
+// TODO: Add mock for REGION_PROPERTIES
 const graphqlMocks = [
   {
     request: {
