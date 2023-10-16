@@ -23,17 +23,22 @@
       "protocol": "inspector",
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
-      "env": {"CI": "true"},
+      "env": {"CI": "true", "NODE_ENV": "test"},
       "disableOptimisticBPs": true
     },
     {
+      "name": "TS: Debug Server",
       "type": "node",
       "request": "launch",
-      "name": "Node: Current File",
-      "program": "${workspaceFolder}/${relativeFile}",
-      "cwd": "${workspaceFolder}",
-      "console": "integratedTerminal",
-      "args": []
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["--nolazy", "-r", "ts-node/register/transpile-only"],
+      "program": "backend/index.ts",
+      "cwd": "${workspaceRoot}",
+      "internalConsoleOptions": "openOnSessionStart",
+      "skipFiles": ["<node_internals>/**", "node_modules/**"],
+      "env": {
+        "TS_NODE_COMPILER_OPTIONS": "{\"module\":\"commonjs\"}"
+      }
     },
     {
       "name": "TS: Current File",

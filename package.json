@@ -17,6 +17,11 @@
     "@types/node": "^16.18.58",
     "@types/react": "^18.2.27",
     "@types/react-dom": "^18.2.12",
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
     "graphql": "^16.8.1",
     "mapbox-gl": "^2.15.0",
     "mapbox-gl-style-switcher": "^1.0.11",
@@ -33,13 +38,16 @@
     "@commitlint/cli": "^17.7.2",
     "@commitlint/config-conventional": "^17.7.0",
     "@types/styled-components": "^5.1.28",
+    "concurrently": "^8.2.1",
     "cross-env": "^7.0.3",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
+    "nodemon": "^3.0.1",
     "prettier": "^3.0.3",
+    "rimraf": "^5.0.5",
     "standard-version": "^9.5.0",
     "ts-node": "^10.9.1"
   },
@@ -54,7 +62,11 @@
     "test": "react-scripts test",
     "test:staged": "cross-env CI=true react-scripts test --env=jsdom --bail --findRelatedTests",
     "lint": "eslint src --fix",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "clean:server": "rimraf backend/dist",
+    "tscfg:server": "npm run build:server -- --showConfig",
+    "build:server": "tsc -p backend/setup/tsconfig.build.json",
+    "dev:server": "concurrently -k \"npm:build:server -- -w\" \"nodemon --trace-warnings backend/dist/index.js\""
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
