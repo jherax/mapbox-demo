@@ -1,0 +1,10 @@
+@express_port = {{$dotenv EXPRESS_PORT}}
+
+POST http://localhost:{{express_port}}/api/v1/applicant
+Content-Type: application/json
+
+{
+  "fullname": "John Doe",
+  "address": "Evergreen Avenue 123",
+  "email": "test@domain.com"
+}
