@@ -1,10 +1,18 @@
 import 'mapbox-gl/dist/mapbox-gl.css';
+import 'mapbox-gl-style-switcher/styles.css';
 
-import {useState} from 'react';
-import MapGL, {GeolocateControl, Marker, NavigationControl} from 'react-map-gl';
+import {useRef, useState} from 'react';
+import MapGL, {
+  FullscreenControl,
+  GeolocateControl,
+  type MapRef,
+  Marker,
+  NavigationControl,
+} from 'react-map-gl';
 import styled from 'styled-components';
 
 import config from '../../config/app.cfg';
+import StyleSwitcherControl from '../StyleSwitcherControl';
 
 const Wrapper = styled.section`
   position: relative;
@@ -14,13 +22,13 @@ const Wrapper = styled.section`
   box-sizing: border-box;
 `;
 
-/** @see https://visgl.github.io/react-map-gl/docs/get-started */
-
 type ViewPortState = {
   longitude: number;
   latitude: number;
   zoom: number;
 };
+
+/** @see https://visgl.github.io/react-map-gl/docs/get-started */
 
 export default function Mapbox() {
   const mapUri = `mapbox://styles/mapbox/streets-v11`;
@@ -30,9 +38,11 @@ export default function Mapbox() {
     zoom: 9,
   });
 
+  const mapRef = useRef<MapRef>(null);
   return (
     <Wrapper id='Mapbox'>
       <MapGL
+        ref={mapRef}
         mapLib={import('mapbox-gl')}
         mapboxAccessToken={config.api.mapboxAccessToken}
         style={{width: '100%', height: '100%'}}
@@ -41,11 +51,14 @@ export default function Mapbox() {
         onMove={evt => setViewport(evt.viewState)}
       >
         <Marker longitude={viewport.longitude} latitude={viewport.latitude} />
-        <NavigationControl />
         <GeolocateControl
+          position='bottom-right'
           positionOptions={{enableHighAccuracy: true}}
           trackUserLocation={true}
         />
+        <FullscreenControl position='bottom-right' />
+        <NavigationControl position='bottom-right' />
+        <StyleSwitcherControl position='bottom-right' />
       </MapGL>
     </Wrapper>
   );
