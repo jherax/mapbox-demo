@@ -29,6 +29,15 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "Node: Debug Backend",
+      "program": "${workspaceFolder}/backend/index.js",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": []
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Node: Current File",
       "program": "${workspaceFolder}/${relativeFile}",
       "cwd": "${workspaceFolder}",
