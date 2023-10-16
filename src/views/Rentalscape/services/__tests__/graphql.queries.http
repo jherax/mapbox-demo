@@ -89,9 +89,9 @@ X-REQUEST-TYPE: GraphQL
 query GetProperties($regionId: String!, $nextToken: String) {
   region: getRegion(regionName: $regionId) {
     properties(
-      limit: 2000
+      limit: 10
       nextToken: $nextToken
-      filter: { address: { size: { gt: 0 } } } #
+      filter: { address: { size: { gt: 0 } } }
     ) {
       nextToken
       items {

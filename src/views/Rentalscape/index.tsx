@@ -7,6 +7,10 @@ import logger from '../../utils/logger';
 import setHrefValue from '../../utils/setHrefValue';
 import ResolveView from '../ResolveView';
 import {
+  REGION_PROPERTIES,
+  type RegionPropertiesResponse,
+} from './services/getProperties';
+import {
   REGION_CONFIG,
   type RegionConfigResponse,
 } from './services/getRegionConfig';
@@ -17,25 +21,30 @@ const Wrapper = styled.div`
   flex-wrap: nowrap;
   justify-content: start;
   align-items: stretch;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  overflow: auto;
+  height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
 `;
 
 function Rentalscape() {
-  const {data, loading, error} = useQuery<RegionConfigResponse>(
-    REGION_CONFIG.query,
-    {
-      variables: REGION_CONFIG.variables,
-    },
+  const regionConfig = useQuery<RegionConfigResponse>(REGION_CONFIG.query, {
+    variables: REGION_CONFIG.variables,
+  });
+
+  const regionProperties = useQuery<RegionPropertiesResponse>(
+    REGION_PROPERTIES.query,
+    {variables: REGION_PROPERTIES.variables},
   );
 
-  logger.info({loading: loading, data: data, error: error});
-  const firstItem = data?.region?.items[0];
+  logger.info({
+    config: {loading: regionConfig.loading, data: regionConfig.data},
+    properties: {
+      loading: regionProperties.loading,
+      data: regionProperties.data,
+    },
+  });
+
+  const firstItem = regionConfig.data?.region?.items[0];
   const sidebarProps: SidebarProps = {
     regionLogo: firstItem?.logo ?? '',
     legends: (firstItem?.legends ?? []).map(item => {
@@ -56,7 +65,7 @@ function Rentalscape() {
 
   return (
     <Wrapper>
-      <ResolveView loading={loading} error={error}>
+      <ResolveView loading={regionConfig.loading} error={regionConfig.error}>
         <Sidebar {...sidebarProps}></Sidebar>
         <Mapbox></Mapbox>
       </ResolveView>

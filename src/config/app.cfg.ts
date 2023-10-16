@@ -10,12 +10,21 @@ const config = {
     ),
 
     /**
-     * Get the token from XHR: "graphql", using the value of Header: "Authorization"
+     * Get the token from XHR: "graphql", using the Header: "Authorization"
      * Inspect the Network: https://placer-ca-str-public-portal.deckard.com/
      */
     authorizationToken: validateKey(
       'REACT_APP_AUTH_TOKEN',
       process.env.REACT_APP_AUTH_TOKEN,
+    ),
+
+    /**
+     * Get the token from XHR: "streets-v11", using the query-parameter: "access_token"
+     * Inspect the Network: https://placer-ca-str-public-portal.deckard.com/
+     */
+    mapboxAccessToken: validateKey(
+      'REACT_APP_MAPBOX_ACCESS_TOKEN',
+      process.env.REACT_APP_MAPBOX_ACCESS_TOKEN,
     ),
   },
 };

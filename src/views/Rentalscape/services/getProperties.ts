@@ -1,13 +1,13 @@
 import {gql} from '@apollo/client';
 
-export const GET_PROPERTIES = {
+export const REGION_PROPERTIES = {
   query: gql`
     query GetProperties($regionId: String!, $nextToken: String) {
       region: getRegion(regionName: $regionId) {
         properties(
-          limit: 2000
+          limit: 10
           nextToken: $nextToken
-          filter: {address: {size: {gt: 0}}} #
+          filter: {address: {size: {gt: 0}}}
         ) {
           nextToken
           items {
@@ -78,4 +78,27 @@ export const GET_PROPERTIES = {
     regionId: 'ca-placer',
   },
   operationName: 'GetProperties',
+};
+
+export type RegionPropertiesResponse = {
+  region: {
+    properties: {
+      nexToken: string;
+      items: Array<{
+        deckardId: string;
+        displayInfo: Array<{
+          label: string;
+          value: string;
+        }>;
+        isLicensed: boolean;
+        types: string[];
+        geo: {
+          lat: number;
+          lng: number;
+        };
+        geo5: string;
+        address: string;
+      }>;
+    };
+  };
 };
