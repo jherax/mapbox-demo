@@ -1,6 +1,7 @@
 {
   "name": "mapbox-demo",
   "description": "Demo using react-map-gl",
+  "author": "David Rivera <jherax@gmail.com>",
   "version": "0.1.0",
   "private": true,
   "engines": {
