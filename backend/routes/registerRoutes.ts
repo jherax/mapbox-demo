@@ -1,14 +1,14 @@
 import express, {type Express, type Request, type Response} from 'express';
 
-import config from '../config/app';
-import logger from '../config/logger';
-import messages from '../config/messages';
 import Applicant from '../models/applicant';
+import config from '../server/config';
+import logger from '../server/logger';
+import messages from '../server/messages';
 
-export default function registerRoutes(server: Express) {
+export default function registerRoutes(app: Express) {
   const router = express.Router();
 
-  server.route('/').get((req: Request, res: Response) => {
+  app.route('/').get((req: Request, res: Response) => {
     res.send('Default Server');
   });
 
@@ -48,6 +48,6 @@ export default function registerRoutes(server: Express) {
       });
   });
 
-  server.use(config.app.apiPrefix, router);
-  return server;
+  app.use(config.app.apiPrefix, router);
+  return app;
 }

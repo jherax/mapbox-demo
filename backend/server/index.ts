@@ -4,9 +4,9 @@ import cors from 'cors';
 import express, {type Express} from 'express';
 import {createServer, type Server} from 'http';
 
-import config from './config/app';
-import logger from './config/logger';
-import registerRoutes from './routes/registerRoutes';
+import registerRoutes from '../routes/registerRoutes';
+import config from './config';
+import logger from './logger';
 
 let app: Express;
 let server: Server;
@@ -29,26 +29,10 @@ export const initServer = async () => {
  * This method is decoupled form the `initServer` method,
  * in order to make it easier to create isolated unit tests.
  */
-export const initDb = async () => {
-  server.on('ready', startServer);
-  // emmit after db initialization
-  return new Promise(resolve => {
-    setTimeout(() => {
-      server.emit('ready');
-      resolve(server);
-    }, 100);
-  });
-};
-
-/**
- * This method is decoupled form the `initServer` method,
- * in order to make it easier to create isolated unit tests.
- */
-const startServer = async () => {
+export const startServer = async () => {
   server.listen(appPort, () => {
     logger.info(`⚡️ Express running at http://${appHost}:${appPort}`);
   });
-
   return server;
 };
 

@@ -6,8 +6,9 @@
   "private": true,
   "engines": {
     "node": ">=18",
-    "npm": ">=8"
+    "npm": ">=9"
   },
+  "license": "ISC",
   "dependencies": {
     "@apollo/client": "^3.8.5",
     "@testing-library/jest-dom": "^5.17.0",
@@ -70,7 +71,7 @@
     "dev:server": "concurrently -k \"npm:build:server -- -w\" \"nodemon --trace-warnings backend/dist/index.js\""
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": [
+    "{backend,scripts}/**/*.{js,jsx,ts,tsx}": [
       "npm run test:staged"
     ]
   },
