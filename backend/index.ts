@@ -1,4 +1,4 @@
-import {initDb, initServer} from './server';
+import {initServer, startServer} from './server';
 
 /**
  * The initServer() function will initialize the
@@ -7,4 +7,4 @@ import {initDb, initServer} from './server';
  * will actually start the server. This is what you will use in our main
  * entry-point for the server.
  */
-initServer().then(initDb);
+initServer().then(startServer);
