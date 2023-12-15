@@ -1,51 +1,13 @@
 import './index.css';
 
-import {
-  ApolloClient,
-  ApolloProvider,
-  HttpLink,
-  InMemoryCache,
-} from '@apollo/client';
+import {ApolloProvider} from '@apollo/client';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Outlet,
-  Route,
-  RouterProvider,
-} from 'react-router-dom';
+import {RouterProvider} from 'react-router-dom';
 
-import config from './config/app.cfg';
+import AppApolloClient from './appApolloClient';
+import AppRouter from './appRouter';
 import reportWebVitals from './reportWebVitals';
-import Applicant from './views/Applicant';
-import Rentalscape from './views/Rentalscape';
-
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path='/' element={<Outlet />}>
-      <Route path='' element={<Rentalscape />} />
-      <Route path='applicant' element={<Applicant />} />
-    </Route>,
-  ),
-);
-
-const createApolloClient = (url: string, authToken: string) => {
-  return new ApolloClient({
-    link: new HttpLink({
-      uri: url,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-    }),
-    cache: new InMemoryCache(),
-  });
-};
-
-const client = createApolloClient(
-  config.api.baseUrl,
-  config.api.authorizationToken,
-);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
@@ -60,8 +22,8 @@ const root = ReactDOM.createRoot(
  */
 root.render(
   <React.StrictMode>
-    <ApolloProvider client={client}>
-      <RouterProvider router={router} />
+    <ApolloProvider client={AppApolloClient}>
+      <RouterProvider router={AppRouter} />
     </ApolloProvider>
   </React.StrictMode>,
 );
