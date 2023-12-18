@@ -11,17 +11,3 @@ declare interface JSONObject {
 }
 
 declare type JSONArray = Array<JSONValue>;
-
-declare type ServerMessage = {
-  statusCode: number;
-  message: string;
-  success: boolean;
-};
-
-declare interface ServerResponse<T = JSONObject> extends ServerMessage {
-  data?: T;
-  error?: {
-    message: string;
-    stack: string;
-  };
-}
