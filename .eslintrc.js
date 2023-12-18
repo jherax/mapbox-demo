@@ -37,5 +37,6 @@ module.exports = {
     'simple-import-sort/exports': 'error',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-var-requires': 'off',
+    'jest/no-mocks-import': 'off',
   },
 };
