@@ -1,24 +1,21 @@
 {
   "name": "mapbox-demo",
-  "description": "Demo using react-map-gl",
+  "description": "Demo using graphql and react-map-gl",
   "author": "David Rivera <jherax@gmail.com>",
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": ">=18",
-    "npm": ">=9"
+    "node": ">=20",
+    "npm": ">=10"
   },
   "license": "ISC",
   "dependencies": {
-    "@apollo/client": "^3.8.5",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/mapbox-gl": "^2.7.15",
-    "@types/node": "^16.18.58",
-    "@types/react": "^18.2.27",
-    "@types/react-dom": "^18.2.12",
+    "@apollo/client": "^3.8.8",
+    "@testing-library/jest-dom": "^6.1.5",
+    "@testing-library/react": "^14.1.2",
+    "@testing-library/user-event": "^14.5.1",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
     "body-parser": "^1.20.2",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -30,28 +27,31 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-map-gl": "^7.1.6",
-    "react-router-dom": "^6.16.0",
+    "react-router-dom": "^6.21.0",
     "react-scripts": "5.0.1",
-    "styled-components": "^6.0.8",
-    "typescript": "^4.9.5",
+    "styled-components": "^6.1.1",
+    "typescript": "~4.9.5",
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.7.2",
-    "@commitlint/config-conventional": "^17.7.0",
-    "@types/styled-components": "^5.1.28",
-    "concurrently": "^8.2.1",
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "@types/jest": "^29.5.11",
+    "@types/mapbox-gl": "^2.7.19",
+    "@types/node": "^20.10.5",
+    "@types/styled-components": "^5.1.34",
+    "concurrently": "^8.2.2",
     "cross-env": "^7.0.3",
-    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "husky": "^8.0.3",
-    "lint-staged": "^14.0.1",
-    "nodemon": "^3.0.1",
-    "prettier": "^3.0.3",
+    "lint-staged": "^15.2.0",
+    "nodemon": "^3.0.2",
+    "prettier": "^3.1.1",
     "rimraf": "^5.0.5",
     "standard-version": "^9.5.0",
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.2"
   },
   "optionalDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
@@ -68,7 +68,7 @@
     "clean:server": "rimraf backend/dist",
     "tscfg:server": "npm run build:server -- --showConfig",
     "build:server": "tsc -p backend/setup/tsconfig.build.json",
-    "dev:server": "concurrently -k \"npm:build:server -- -w\" \"nodemon --trace-warnings backend/dist/index.js\""
+    "dev:server": "concurrently -k \"npm:build:server -- -w\" \"nodemon --dns-result-order=ipv4first --trace-warnings backend/dist/index.js\""
   },
   "lint-staged": {
     "{backend,scripts}/**/*.{js,jsx,ts,tsx}": [
