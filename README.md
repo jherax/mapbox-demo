@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# GraphQL and React Map GL
 
 This project was bootstrapped with
 [Create React App](https://github.com/facebook/create-react-app).
@@ -45,15 +45,10 @@ Both exercises presented in the interviews are running on the same application.
 I have used React Router with the following views:
 
 - `/`: Mapbox demo (default view)
-- `/applicant`: Basic React form
 
 The Express backend is started by running `npm run dev:server`. The server is
 listening by default in [http://localhost:9000](http://localhost:9000). You can
 change the default port by setting the key `EXPRESS_PORT` in the `.env` file.
-
-You can find the file containing the Http request tests here:
-
-- [applicant.http](backend/__tests__/applicant.http)
 
 ## Available Scripts
 
