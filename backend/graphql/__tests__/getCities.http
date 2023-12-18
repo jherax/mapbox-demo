@@ -1,0 +1,40 @@
+### DOCS: https://github.com/Huachao/vscode-restclient#making-graphql-request
+
+@baseUrl = http://localhost:{{$dotenv EXPRESS_PORT}}/graphql
+@auth_token = {{$dotenv JWT_AUTH_TOKEN}}
+
+######################
+### Gets all cities (limit results)
+# @name GetCitiesLimit
+
+POST {{ baseUrl }}
+Content-Type: application/json
+Authorization: Bearer {{ auth_token }}
+X-REQUEST-TYPE: GraphQL
+
+query GetCitiesLimit($limit: Int!, $page: Int) {
+  getCities(limit: $limit, page: $page) {
+    message
+    result {
+      name
+      lat
+      lng
+      country
+      countryInfo {
+        name
+        native
+        phone
+        continent
+        capital
+        currency
+        languages
+      }
+    }
+  }
+}
+
+### variables
+{
+  "limit": 10,
+  "page": 3
+}
