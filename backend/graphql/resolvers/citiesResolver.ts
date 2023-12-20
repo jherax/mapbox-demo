@@ -20,8 +20,8 @@ const citiesResolver = {
   Query: {
     getCities: async (
       parent,
-      params,
-      contextShared,
+      params: {limit: number; page: number},
+      contextShared: ApolloServerContext,
     ): Promise<CitiesResponse> => {
       const page = +(params.page || 1);
       const limit = +(params.limit || 10);
@@ -47,7 +47,7 @@ const citiesResolver = {
     getCitiesByName: async (
       parent,
       {name}: {name: string},
-      contextShared,
+      contextShared: ApolloServerContext,
     ): Promise<CitiesResponse> => {
       /** @see https://cutt.ly/mozilla-intl-collator */
       const comparator = new Intl.Collator(undefined, {
@@ -82,7 +82,7 @@ const citiesResolver = {
     getCitiesByCountry: async (
       parent,
       {country}: {country: string},
-      contextShared,
+      contextShared: ApolloServerContext,
     ): Promise<CitiesResponse> => {
       /** @see https://cutt.ly/mozilla-intl-collator! */
       const comparator = new Intl.Collator(undefined, {
@@ -123,7 +123,7 @@ const citiesResolver = {
     getCitiesByLanguage: async (
       parent,
       {lang}: {lang: string},
-      contextShared,
+      contextShared: ApolloServerContext,
     ): Promise<CitiesResponse> => {
       /** @see https://cutt.ly/mozilla-intl-collator! */
       const comparator = new Intl.Collator(undefined, {

@@ -26,9 +26,15 @@ const {makeExecutableSchema} = require('@graphql-tools/schema');
 
 jest.mock('../server/config', () => {
   return {
-    app: {
-      host: 'localhost',
-      port: 8888,
+    __esModule: true,
+    isProd: false,
+    default: {
+      env: 'test',
+      app: {
+        host: 'localhost',
+        port: 8888,
+        public: '/public',
+      },
     },
   };
 });
