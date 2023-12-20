@@ -10,17 +10,49 @@ repository
 [https://github.com/jherax/mapbox-demo](https://github.com/jherax/mapbox-demo),
 go to the root directory and create a `.env` file with the following keys:
 
+### Server
+
+```properties
+EXPRESS_PORT=9000
+
+# dev | prod | qa
+NODE_ENV=dev
+```
+
+### Client
+
 ```properties
 # Graphql resource location
 REACT_APP_API_BASE_URL=https://fxjney46mbeijjyti3ysri6afi.appsync-api.us-west-2.amazonaws.com/graphql
 
 # Authorization Header
 REACT_APP_AUTH_TOKEN=___Authorization_Key___
-
 REACT_APP_MAPBOX_ACCESS_TOKEN=___React_Mapbox_Access_Token___
 ```
 
 Whitout those values, the app can't start properly.
+
+## Running the server
+
+Just run the command
+
+```bash
+npm install
+npm run dev:server
+```
+
+## Apollo GraphQL
+
+The path that resolves Apollo queries is: `/graphql`.
+
+💡 When running in non-production environment, the `/graphql` and `/sandbox`
+paths are enabled to run an
+[Apollo Sandbox](https://www.apollographql.com/docs/graphos/explorer/sandbox/)
+environment where we can now execute GraphQL our queries on our own server.
+
+- Default path: [localhost:9000/sandbox](http://localhost:9000/graphql)
+- Online Sandbox:
+  [studio.apollographql.com/sandbox](https://studio.apollographql.com/sandbox/)
 
 ## VS Code REST
 
@@ -33,28 +65,40 @@ requests.
 
 You can find the file containing the graphql queries here:
 
-- [graphql.queries.http](src/views/Rentalscape/services/__tests__/graphql.queries.http)
+- [getCities.http](backend/graphql/__tests__/getCities.http)
+- [getCitiesByName.http](backend/graphql/__tests__/getCitiesByName.http)
+- [getCitiesByCountry.http](backend/graphql/__tests__/getCitiesByCountry.http)
+- [getCitiesByLanguage.http](backend/graphql/__tests__/getCitiesByLanguage.http)
+- [getRegionConfig.http](src/views/Rentalscape/services/__tests__/getRegionConfig.http)
+- [getRegionNames.http](src/views/Rentalscape/services/__tests__/getRegionNames.http)
+- [getProperties.http](src/views/Rentalscape/services/__tests__/getProperties.http)
 
 ## Applications
-
-The front-end application is started by running `npm run start`, then the
-browser opens [http://localhost:3000](http://localhost:3000) with the default
-view.
-
-Both exercises presented in the interviews are running on the same application.
-I have used React Router with the following views:
-
-- `/`: Mapbox demo (default view)
 
 The Express backend is started by running `npm run dev:server`. The server is
 listening by default in [http://localhost:9000](http://localhost:9000). You can
 change the default port by setting the key `EXPRESS_PORT` in the `.env` file.
 
+The following paths are part of the Express router:
+
+- [`http://localhost:9000/graphql`](http://localhost:9000/graphql): GraphQL
+  server.
+- [`http://localhost:9000/sandbox`](http://localhost:9000/sandbox): GraphQL
+  sandbox.
+
+The front-end application is started by running `npm run start`, then the
+browser opens [http://localhost:3000](http://localhost:3000) with the default
+view.
+
+The following paths are part of the React router:
+
+- [`http://localhost:3000`](http://localhost:3000): Mapbox demo (default view)
+
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm dev:server`
+### `npm run dev:server`
 
 Runs the Express server running at
 [http://localhost:9000](http://localhost:9000).
@@ -72,6 +116,10 @@ You will also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests)
 for more information.
+
+### `npm run test:be`
+
+Start the test suite for the code in the `/backend` directory.
 
 ### `npm run build`
 

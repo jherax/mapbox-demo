@@ -1,3 +1,5 @@
+import path from 'node:path';
+
 import {expressMiddleware} from '@apollo/server/express4';
 import cors from 'cors';
 import express, {type Express} from 'express';
@@ -5,9 +7,10 @@ import http, {type Server} from 'http';
 
 import logger from '../utils/logger';
 import initApollo from './apollo';
-import config from './config';
+import config, {isProd} from './config';
 
-const {host, port} = config.app;
+const {host: appHost, port: appPort} = config.app;
+const appPublic = config.app.public;
 let server: Server;
 let app: Express;
 
@@ -39,16 +42,29 @@ export const initServer = async () => {
         // and then pass the token to the context object in the resolvers.
         const auth: string = req.headers.authorization ?? '';
         const token: string = auth.replace('Bearer ', '');
-        return {token};
+        return {token} as ApolloServerContext;
       },
     }),
   );
+
+  // app.use(express.static(appPublic))
+
+  if (!isProd) {
+    /**
+     * @see https://www.apollographql.com/docs/graphos/explorer/sandbox/
+     */
+    app.get('/sandbox', function (req, res) {
+      res.sendFile(path.join(appPublic, 'sandbox', 'index.html'), {
+        root: process.cwd(),
+      });
+    });
+  }
 
   return server;
 };
 
 export const startServer = async () => {
-  await new Promise<void>(resolve => server.listen({port}, resolve));
-  logger.info(`🚀 Server ready at http://${host}:${port}`);
+  await new Promise<void>(resolve => server.listen({port: appPort}, resolve));
+  logger.info(`🚀 Server ready at http://${appHost}:${appPort}`);
   return server;
 };
