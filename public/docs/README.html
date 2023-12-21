@@ -1,0 +1,137 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>README</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.classless.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dracula/highlightjs/dracula.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <style> pre>code.hljs {padding: var(--spacing); color: rgb(162, 175, 185);} </style>
+    <script>hljs.highlightAll();</script>
+  </head>
+  <body>
+    <main>
+    <h1 id="graphqlandreactmapgl">GraphQL and React Map GL</h1>
+<p>This project was bootstrapped with
+<a href="https://github.com/facebook/create-react-app">Create React App</a>.</p>
+<h2 id="environment">Environment</h2>
+<p>This application depends on some environment variables. Once you have cloned the
+repository
+<a href="https://github.com/jherax/mapbox-demo">github.com/jherax/mapbox-demo</a>, go to
+the root directory and create a <code class="prettyprint">.env</code> file with the following keys:</p>
+<h3 id="server">Server</h3>
+<pre class="prettyprint linenums"><code class="bash language-bash">EXPRESS_PORT=9000
+
+# dev | prod | qa
+NODE_ENV=dev
+</code></pre>
+<h3 id="client">Client</h3>
+<pre class="prettyprint linenums"><code class="bash language-bash"># Graphql resource location
+REACT_APP_API_BASE_URL=https://fxjney46mbeijjyti3ysri6afi.appsync-api.us-west-2.amazonaws.com/graphql
+
+# Authorization Header
+REACT_APP_AUTH_TOKEN=___Authorization_Key___
+REACT_APP_MAPBOX_ACCESS_TOKEN=___React_Mapbox_Access_Token___
+</code></pre>
+<p>Whitout those values, the app can't start properly.</p>
+<h2 id="runningtheserver">Running the server</h2>
+<p>Just run the command</p>
+<pre class="prettyprint linenums"><code class="bash language-bash">npm install
+npm run dev:server
+</code></pre>
+<h2 id="apollographql">Apollo GraphQL</h2>
+<p>The path that resolves Apollo queries is: <code class="prettyprint">/graphql</code>.</p>
+<p>💡 When running in non-production environment, the <code class="prettyprint">/graphql</code> and <code class="prettyprint">/sandbox</code>
+paths are enabled to run an
+<a href="https://www.apollographql.com/docs/graphos/explorer/sandbox/">Apollo Sandbox</a>
+environment where we can now execute GraphQL our queries on our own server.</p>
+<ul>
+<li>Default path: <a href="http://localhost:9009/graphql">localhost:9009/sandbox</a></li>
+<li>Online Sandbox:
+<a href="https://studio.apollographql.com/sandbox/">studio.apollographql.com/sandbox</a></li>
+</ul>
+<h2 id="vscoderest">VS Code REST</h2>
+<p>This App suggest installing some VS Code extensions to ease the development
+experience. One of those extensions is the
+<a href="https://github.com/Huachao/vscode-restclient#making-graphql-request">REST Client</a>
+which allows you to send HTTP request and view the response in Visual Studio
+Code directly. This extension comes with a build-in support for making GraphQL
+requests.</p>
+<p>You can find the file containing the graphql queries here:</p>
+<ul>
+<li><a href="https://github.com/jherax/mapbox-demo/blob/master/backend/graphql/__tests__/getCities.http">getCities.http</a></li>
+<li><a href="https://github.com/jherax/mapbox-demo/blob/master/backend/graphql/__tests__/getCitiesByName.http">getCitiesByName.http</a></li>
+<li><a href="https://github.com/jherax/mapbox-demo/blob/master/backend/graphql/__tests__/getCitiesByCountry.http">getCitiesByCountry.http</a></li>
+<li><a href="https://github.com/jherax/mapbox-demo/blob/master/backend/graphql/__tests__/getCitiesByLanguage.http">getCitiesByLanguage.http</a></li>
+<li><a href="https://github.com/jherax/mapbox-demo/blob/master/src/views/Rentalscape/services/__tests__/getRegionConfig.http">getRegionConfig.http</a></li>
+<li><a href="https://github.com/jherax/mapbox-demo/blob/master/src/views/Rentalscape/services/__tests__/getRegionNames.http">getRegionNames.http</a></li>
+<li><a href="https://github.com/jherax/mapbox-demo/blob/master/src/views/Rentalscape/services/__tests__/getProperties.http">getProperties.http</a></li>
+</ul>
+<h2 id="applications">Applications</h2>
+<p>The Express backend is started by running <code class="prettyprint">npm run dev:server</code>. The server is
+listening by default in <a href="http://localhost:9009">http://localhost:9009</a>. You can
+change the default port by setting the key <code class="prettyprint">EXPRESS_PORT</code> in the <code class="prettyprint">.env</code> file.</p>
+<p>The following paths are part of the Express router:</p>
+<ul>
+<li><a href="http://localhost:9009/graphql"> <code class="prettyprint">/graphql</code></a>: GraphQL server.</li>
+<li><a href="http://localhost:9009/sandbox"> <code class="prettyprint">/sandbox</code></a>: GraphQL sandbox.</li>
+</ul>
+<p>The front-end application is started by running <code class="prettyprint">npm run start</code>, then the
+browser opens <a href="http://localhost:3000">http://localhost:3000</a> with the default
+view.</p>
+<p>The following paths are part of the React router:</p>
+<ul>
+<li><a href="http://localhost:3000"> <code class="prettyprint">/</code></a>: Mapbox demo (default view)</li>
+</ul>
+<h2 id="scripts">Scripts</h2>
+<p>In the root directory, the following scripts are available:</p>
+<h3 id="serverscripts">Server scripts</h3>
+<h4 id="npmrundevserver"> <code class="prettyprint">npm run dev:server</code></h4>
+<p>Runs the Express server running at
+<a href="http://localhost:9009">http://localhost:9009</a>.</p>
+<h4 id="npmruntestbe"> <code class="prettyprint">npm run test:be</code></h4>
+<p>Start the test suite for the code in the <code class="prettyprint">/backend</code> directory.</p>
+<h4 id="npmrunbuildserver"> <code class="prettyprint">npm run build:server</code></h4>
+<p>Builds the app for production to the <code class="prettyprint">backend/dist</code> folder.</p>
+<h4 id="npmrungendocs"> <code class="prettyprint">npm run gendocs</code></h4>
+<p>Generates the public <code class="prettyprint">README.html</code> file from markdown.</p>
+<h3 id="clientscripts">Client scripts</h3>
+<h4 id="npmstart"> <code class="prettyprint">npm start</code></h4>
+<p>Runs the app in the development mode. Open
+<a href="http://localhost:3000">http://localhost:3000</a> to view it in the browser.</p>
+<p>The page will reload if you make edits. You will also see any lint errors in the
+console.</p>
+<h4 id="npmtest"> <code class="prettyprint">npm test</code></h4>
+<p>Launches the test runner in the interactive watch mode. See the section about
+<a href="https://facebook.github.io/create-react-app/docs/running-tests">running tests</a>
+for more information.</p>
+<h4 id="npmrunbuild"> <code class="prettyprint">npm run build</code></h4>
+<p>Builds the app for production to the <code class="prettyprint">build</code> folder. It correctly bundles React
+in production mode and optimizes the build for the best performance.</p>
+<p>The build is minified and the filenames include the hashes. Your app is ready to
+be deployed!</p>
+<p>See the section about
+<a href="https://facebook.github.io/create-react-app/docs/deployment">deployment</a> for
+more information.</p>
+<h4 id="npmruneject"> <code class="prettyprint">npm run eject</code></h4>
+<p><strong>Note: this is a one-way operation. Once you <code class="prettyprint">eject</code>, you can’t go back!</strong></p>
+<p>If you aren’t satisfied with the build tool and configuration choices, you can <code class="prettyprint">eject</code> at any time. This command will remove the single build dependency from
+your project.</p>
+<p>Instead, it will copy all the configuration files and the transitive
+dependencies (webpack, Babel, ESLint, etc) right into your project so you have
+full control over them. All of the commands except <code class="prettyprint">eject</code> will still work, but
+they will point to the copied scripts so you can tweak them. At this point
+you’re on your own.</p>
+<p>You don’t have to ever use <code class="prettyprint">eject</code>. The curated feature set is suitable for
+small and middle deployments, and you shouldn’t feel obligated to use this
+feature. However we understand that this tool wouldn’t be useful if you couldn’t
+customize it when you are ready for it.</p>
+<h2 id="learnmore">Learn More</h2>
+<p>You can learn more in the
+<a href="https://facebook.github.io/create-react-app/docs/getting-started">Create React App documentation</a>.</p>
+<p>To learn React, check out the <a href="https://reactjs.org/">React documentation</a>.</p>
+    </main>
+  </body>
+</html>

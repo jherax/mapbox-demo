@@ -27,6 +27,12 @@ export const initServer = async () => {
   server = http.createServer(app);
   const apollo = await initApollo();
 
+  // app.use(express.static(appPublic))
+
+  app.get('/', function (req, res) {
+    res.sendFile(path.resolve(appPublic, 'docs', 'README.html'));
+  });
+
   app.use(
     '/graphql',
     cors<cors.CorsRequest>(),
@@ -47,15 +53,13 @@ export const initServer = async () => {
     }),
   );
 
-  // app.use(express.static(appPublic))
-
   if (!isProd) {
     /**
      * @see https://www.apollographql.com/docs/graphos/explorer/sandbox/
      */
     app.get('/sandbox', function (req, res) {
-      res.sendFile(path.join(appPublic, 'sandbox', 'index.html'), {
-        root: process.cwd(),
+      res.sendFile(path.resolve(appPublic, 'sandbox', 'index.html'), {
+        // root: process.cwd(),
       });
     });
   }

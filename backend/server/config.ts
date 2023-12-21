@@ -9,7 +9,7 @@ const config = {
   app: {
     host: process.env.EXPRESS_HOST || 'localhost',
     port: process.env.EXPRESS_PORT || 9000,
-    public: path.resolve(process.cwd(), '/public'),
+    public: path.join(process.cwd(), 'public'),
   },
 };
 
