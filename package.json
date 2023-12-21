@@ -57,6 +57,7 @@
     "nodemon": "^3.0.2",
     "prettier": "^3.1.1",
     "rimraf": "^5.0.5",
+    "showdown": "^2.1.0",
     "standard-version": "^9.5.0",
     "supertest": "^6.3.3",
     "ts-node": "^10.9.2"
@@ -69,19 +70,20 @@
     "release": "standard-version",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "eject": "react-scripts eject",
     "test": "react-scripts test --watchAll=false",
     "test:be": "jest -c=backend/setup/jest.config.js --detectOpenHandles",
     "test:staged:be": "cross-env CI=true jest -c=backend/setup/jest.config.js --bail --findRelatedTests",
     "test:staged:fe": "cross-env CI=true react-scripts test --env=jsdom --bail --findRelatedTests",
+    "gendocs": "node scripts/md2html.js",
     "lint": "eslint src --fix",
-    "eject": "react-scripts eject",
     "clean:server": "rimraf backend/dist",
     "tscfg:server": "npm run build:server -- --showConfig",
     "build:server": "tsc -p backend/setup/tsconfig.build.json",
     "dev:server": "concurrently -k \"npm:build:server -- -w\" \"nodemon --dns-result-order=ipv4first --trace-warnings backend/dist/index.js\""
   },
   "lint-staged": {
-    "backend/**/*.{js,ts}": [
+    "{backend,scripts}/**/*.ts": [
       "npm run test:staged:be"
     ],
     "src/**/*.{js,jsx,ts,tsx}": [

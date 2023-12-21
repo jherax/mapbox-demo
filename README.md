@@ -7,12 +7,12 @@ This project was bootstrapped with
 
 This application depends on some environment variables. Once you have cloned the
 repository
-[https://github.com/jherax/mapbox-demo](https://github.com/jherax/mapbox-demo),
-go to the root directory and create a `.env` file with the following keys:
+[github.com/jherax/mapbox-demo](https://github.com/jherax/mapbox-demo), go to
+the root directory and create a `.env` file with the following keys:
 
 ### Server
 
-```properties
+```bash
 EXPRESS_PORT=9000
 
 # dev | prod | qa
@@ -21,7 +21,7 @@ NODE_ENV=dev
 
 ### Client
 
-```properties
+```bash
 # Graphql resource location
 REACT_APP_API_BASE_URL=https://fxjney46mbeijjyti3ysri6afi.appsync-api.us-west-2.amazonaws.com/graphql
 
@@ -81,10 +81,8 @@ change the default port by setting the key `EXPRESS_PORT` in the `.env` file.
 
 The following paths are part of the Express router:
 
-- [`http://localhost:9000/graphql`](http://localhost:9000/graphql): GraphQL
-  server.
-- [`http://localhost:9000/sandbox`](http://localhost:9000/sandbox): GraphQL
-  sandbox.
+- [`/graphql`](http://localhost:9000/graphql): GraphQL server.
+- [`/sandbox`](http://localhost:9000/sandbox): GraphQL sandbox.
 
 The front-end application is started by running `npm run start`, then the
 browser opens [http://localhost:3000](http://localhost:3000) with the default
@@ -92,49 +90,60 @@ view.
 
 The following paths are part of the React router:
 
-- [`http://localhost:3000`](http://localhost:3000): Mapbox demo (default view)
+- [`/`](http://localhost:3000): Mapbox demo (default view)
 
-## Available Scripts
+## Scripts
 
-In the project directory, you can run:
+In the root directory, the following scripts are available:
 
-### `npm run dev:server`
+### Server scripts
+
+#### `npm run dev:server`
 
 Runs the Express server running at
 [http://localhost:9000](http://localhost:9000).
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests)
-for more information.
-
-### `npm run test:be`
+#### `npm run test:be`
 
 Start the test suite for the code in the `/backend` directory.
 
-### `npm run build`
+#### `npm run build:server`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best
-performance.
+Builds the app for production to the `backend/dist` folder.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### `npm run gendocs`
+
+Generates the public `README.html` file from markdown.
+
+### Client scripts
+
+#### `npm start`
+
+Runs the app in the development mode. Open
+[http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits. You will also see any lint errors in the
+console.
+
+#### `npm test`
+
+Launches the test runner in the interactive watch mode. See the section about
+[running tests](https://facebook.github.io/create-react-app/docs/running-tests)
+for more information.
+
+#### `npm run build`
+
+Builds the app for production to the `build` folder. It correctly bundles React
+in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes. Your app is ready to
+be deployed!
 
 See the section about
 [deployment](https://facebook.github.io/create-react-app/docs/deployment) for
 more information.
 
-### `npm run eject`
+#### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 

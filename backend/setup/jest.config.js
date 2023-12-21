@@ -26,7 +26,7 @@ const config = {
       },
     ],
   },
-  roots: ['<rootDir>/backend'],
+  roots: ['<rootDir>/backend', '<rootDir>/scripts'],
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
   testPathIgnorePatterns: ['<rootDir>/backend/setup'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
