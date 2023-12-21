@@ -1,0 +1,28 @@
+### DOCS: https://github.com/Huachao/vscode-restclient#making-graphql-request
+
+@baseUrl = {{$dotenv REACT_APP_GRAPHQL_CITIES}}
+
+######################
+### Gets all cities by country
+# @name GetCitiesByCountry
+
+POST {{ baseUrl }}
+Content-Type: application/json
+X-REQUEST-TYPE: GraphQL
+
+query GetCitiesByCountry($country: String!) {
+  getCitiesByCountry(country: $country) {
+    message
+    result {
+      name
+      lat
+      lng
+      country
+    }
+  }
+}
+
+### variables
+{
+  "country": "colombia"
+}
