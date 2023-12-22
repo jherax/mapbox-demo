@@ -1,0 +1,39 @@
+{
+  "region": {
+    "items": [
+      {
+        "regionName": "ca-placer",
+        "name": "Placer County, CA",
+        "logo": "https://str-placer-county-ca-deploy-us-west-2-prod.s3-us-west-2.amazonaws.com/PlacerCALogo.png",
+        "misc": "{}",
+        "geoJson": "https://public-portal-assets-prod-usw2.s3.us-west-2.amazonaws.com/shapefiles/ca-placer.geojson",
+        "legends": [
+          {
+            "colorHex": "#00AAAB",
+            "count": 3334,
+            "formattedText": "Licensed Short-Term Rental properties",
+            "tooltip": null,
+            "propertyType": "LICENSED"
+          }
+        ],
+        "statistics": [],
+        "links": [
+          {
+            "displayValue": "530-448-8003",
+            "label": "24/7 hotline: ",
+            "tooltip": null,
+            "type": "PHONE",
+            "value": "530-448-8003"
+          },
+          {
+            "displayValue": "strcompliance@placer.ca.gov",
+            "label": "Complaint email: ",
+            "tooltip": null,
+            "type": "EMAIL",
+            "value": "strcompliance@placer.ca.gov"
+          }
+        ]
+      }
+    ]
+  }
+}
