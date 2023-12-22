@@ -1,6 +1,6 @@
 import {gql} from '@apollo/client';
 
-export const LIST_REGIONS = {
+export const REGION_NAMES: ApolloClientQueryOptions = {
   query: gql`
     query GetRegionNames {
       listRegions {
@@ -11,5 +11,18 @@ export const LIST_REGIONS = {
       }
     }
   `,
-  operationName: 'GetRegionNames',
+  options: {
+    context: {
+      clientName: 'RENTALSCAPE',
+    },
+  },
+} as const;
+
+export type RegionNamesResponse = {
+  listRegions: {
+    items: Array<{
+      name: string;
+      regionShortName: string;
+    }>;
+  };
 };

@@ -23,10 +23,11 @@ NODE_ENV=dev
 
 ```bash
 # Graphql resource location
-REACT_APP_API_BASE_URL=https://fxjney46mbeijjyti3ysri6afi.appsync-api.us-west-2.amazonaws.com/graphql
+REACT_APP_GRAPHQL_RENTALSCAPE=https://fxjney46mbeijjyti3ysri6afi.appsync-api.us-west-2.amazonaws.com/graphql
+REACT_APP_GRAPHQL_CITIES=http://localhost:9000/graphql
 
 # Authorization Header
-REACT_APP_AUTH_TOKEN=___Authorization_Key___
+REACT_APP_AUTH_RENTALSCAPE=___Authorization_Key___
 REACT_APP_MAPBOX_ACCESS_TOKEN=___React_Mapbox_Access_Token___
 ```
 
@@ -69,9 +70,9 @@ You can find the file containing the graphql queries here:
 - [getCitiesByName.http](backend/graphql/__tests__/getCitiesByName.http)
 - [getCitiesByCountry.http](backend/graphql/__tests__/getCitiesByCountry.http)
 - [getCitiesByLanguage.http](backend/graphql/__tests__/getCitiesByLanguage.http)
-- [getRegionConfig.http](src/views/Rentalscape/services/__tests__/getRegionConfig.http)
-- [getRegionNames.http](src/views/Rentalscape/services/__tests__/getRegionNames.http)
-- [getProperties.http](src/views/Rentalscape/services/__tests__/getProperties.http)
+- [getRegionDetails.http](src/views/Rentalscape/__tests__/getRegionDetails.http)
+- [getRegionHouses.http](src/views/Rentalscape/__tests__/getRegionHouses.http)
+- [getRegionNames.http](src/views/Rentalscape/__tests__/getRegionNames.http)
 
 ## Applications
 

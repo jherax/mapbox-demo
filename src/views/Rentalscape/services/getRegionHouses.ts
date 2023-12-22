@@ -1,8 +1,8 @@
 import {gql} from '@apollo/client';
 
-export const REGION_PROPERTIES = {
+export const REGION_HOUSES: ApolloClientQueryOptions = {
   query: gql`
-    query GetProperties($regionId: String!, $nextToken: String) {
+    query GetRegionHouses($regionId: String!, $nextToken: String) {
       region: getRegion(regionName: $regionId) {
         properties(
           limit: 10
@@ -74,13 +74,17 @@ export const REGION_PROPERTIES = {
       imageUrls
     }
   `,
-  variables: {
-    regionId: 'ca-placer',
+  options: {
+    variables: {
+      regionId: 'ca-placer',
+    },
+    context: {
+      clientName: 'RENTALSCAPE',
+    },
   },
-  operationName: 'GetProperties',
-};
+} as const;
 
-export type RegionPropertiesResponse = {
+export type RegionHousesResponse = {
   region: {
     properties: {
       nexToken: string;

@@ -1,8 +1,8 @@
 import {gql} from '@apollo/client';
 
-export const REGION_CONFIG = {
+export const REGION_DETAILS: ApolloClientQueryOptions = {
   query: gql`
-    query GetRegionConfig($regionShortName: String!) {
+    query GetRegionDetails($regionShortName: String!) {
       region: regionByShortName(regionShortName: $regionShortName) {
         items {
           regionName
@@ -41,13 +41,17 @@ export const REGION_CONFIG = {
       value
     }
   `,
-  variables: {
-    regionShortName: 'placer-ca',
+  options: {
+    variables: {
+      regionShortName: 'placer-ca',
+    },
+    context: {
+      clientName: 'RENTALSCAPE',
+    },
   },
-  operationName: 'GetRegionConfig',
-};
+} as const;
 
-export type RegionConfigResponse = {
+export type RegionDetailsResponse = {
   region: {
     items: Array<{
       regionName: string;
@@ -63,6 +67,8 @@ export type RegionConfigResponse = {
         tooltip: string;
         propertyType: string;
       }>;
+
+      statistics: JSONObject[];
 
       links: Array<{
         displayValue: string;

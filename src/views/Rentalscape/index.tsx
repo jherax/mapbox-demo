@@ -5,15 +5,16 @@ import Mapbox from '../../components/Mapbox';
 import Sidebar, {type SidebarProps} from '../../components/Sidebar';
 import logger from '../../utils/logger';
 import setHrefValue from '../../utils/setHrefValue';
+import trim from '../../utils/trim';
 import ResolveView from '../ResolveView';
 import {
-  REGION_PROPERTIES,
-  type RegionPropertiesResponse,
-} from './services/getProperties';
+  REGION_DETAILS,
+  type RegionDetailsResponse,
+} from './services/getRegionDetails';
 import {
-  REGION_CONFIG,
-  type RegionConfigResponse,
-} from './services/getRegionConfig';
+  REGION_HOUSES,
+  type RegionHousesResponse,
+} from './services/getRegionHouses';
 
 const Wrapper = styled.div`
   display: flex;
@@ -27,37 +28,38 @@ const Wrapper = styled.div`
 `;
 
 function Rentalscape() {
-  const regionConfig = useQuery<RegionConfigResponse>(REGION_CONFIG.query, {
-    variables: REGION_CONFIG.variables,
-  });
+  const regionDetails = useQuery<RegionDetailsResponse>(
+    REGION_DETAILS.query,
+    REGION_DETAILS.options,
+  );
 
-  const regionProperties = useQuery<RegionPropertiesResponse>(
-    REGION_PROPERTIES.query,
-    {variables: REGION_PROPERTIES.variables},
+  const regionHouses = useQuery<RegionHousesResponse>(
+    REGION_HOUSES.query,
+    REGION_HOUSES.options,
   );
 
   logger.info({
-    config: {loading: regionConfig.loading, data: regionConfig.data},
+    config: {loading: regionDetails.loading, data: regionDetails.data},
     properties: {
-      loading: regionProperties.loading,
-      data: regionProperties.data,
+      loading: regionHouses.loading,
+      data: regionHouses.data,
     },
   });
 
-  const firstItem = regionConfig.data?.region?.items[0];
+  const firstItem = regionDetails.data?.region?.items[0];
   const sidebarProps: SidebarProps = {
     regionLogo: firstItem?.logo ?? '',
     legends: (firstItem?.legends ?? []).map(item => {
       return {
         count: item.count,
-        label: item.formattedText.trim(),
+        label: trim(item.formattedText),
         bulletColor: item.colorHex,
       };
     }),
     links: (firstItem?.links ?? []).map(item => {
       return {
-        label: item.label.trim(),
-        showValue: item.displayValue.trim(),
+        label: trim(item.label),
+        showValue: trim(item.displayValue),
         rawValue: setHrefValue({type: item.type, value: item.value}),
       };
     }),
@@ -65,7 +67,7 @@ function Rentalscape() {
 
   return (
     <Wrapper>
-      <ResolveView loading={regionConfig.loading} error={regionConfig.error}>
+      <ResolveView loading={regionDetails.loading} error={regionDetails.error}>
         <Sidebar {...sidebarProps}></Sidebar>
         <Mapbox></Mapbox>
       </ResolveView>

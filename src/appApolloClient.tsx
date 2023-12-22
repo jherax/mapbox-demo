@@ -1,22 +1,36 @@
-import {ApolloClient, HttpLink, InMemoryCache} from '@apollo/client';
+import {
+  ApolloClient,
+  ApolloLink,
+  HttpLink,
+  InMemoryCache,
+} from '@apollo/client';
 
 import config from './config/app.cfg';
 
-const createApolloClient = (url: string, authToken: string) => {
-  return new ApolloClient({
-    link: new HttpLink({
-      uri: url,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-    }),
-    cache: new InMemoryCache(),
-  });
+const CITIES: ApolloClientNames = 'CITIES';
+const RENTALSCAPE: ApolloClientNames = 'RENTALSCAPE';
+
+const datasources: Record<ApolloClientNames, HttpLink> = {
+  [RENTALSCAPE]: new HttpLink({
+    uri: config.api.urlRentalScape,
+    headers: {
+      Authorization: `Bearer ${config.api.tokenRentalScape}`,
+    },
+  }),
+
+  [CITIES]: new HttpLink({
+    uri: config.api.urlCities,
+  }),
 };
 
-const AppApolloClient = createApolloClient(
-  config.api.baseUrl,
-  config.api.authorizationToken,
-);
+/** @see https://www.apollographql.com/docs/react/get-started */
+const AppApolloClient = new ApolloClient({
+  link: ApolloLink.split(
+    op => op.getContext().clientName === RENTALSCAPE,
+    datasources[RENTALSCAPE],
+    datasources[CITIES],
+  ),
+  cache: new InMemoryCache(),
+});
 
 export default AppApolloClient;

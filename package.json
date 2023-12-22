@@ -83,10 +83,10 @@
     "dev:server": "concurrently -k \"npm:build:server -- -w\" \"nodemon --dns-result-order=ipv4first --trace-warnings backend/dist/index.js\""
   },
   "lint-staged": {
-    "{backend,scripts}/**/*.ts": [
+    "{backend,scripts}/**/!(*.d).ts": [
       "npm run test:staged:be"
     ],
-    "src/**/*.{js,jsx,ts,tsx}": [
+    "src/**/*.{ts,tsx}": [
       "npm run test:staged:fe"
     ]
   },

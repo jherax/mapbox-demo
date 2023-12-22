@@ -29,10 +29,11 @@ NODE_ENV=dev
 </code></pre>
 <h3 id="client">Client</h3>
 <pre class="prettyprint linenums"><code class="bash language-bash"># Graphql resource location
-REACT_APP_API_BASE_URL=https://fxjney46mbeijjyti3ysri6afi.appsync-api.us-west-2.amazonaws.com/graphql
+REACT_APP_GRAPHQL_RENTALSCAPE=https://fxjney46mbeijjyti3ysri6afi.appsync-api.us-west-2.amazonaws.com/graphql
+REACT_APP_GRAPHQL_CITIES=http://localhost:9009/graphql
 
 # Authorization Header
-REACT_APP_AUTH_TOKEN=___Authorization_Key___
+REACT_APP_AUTH_RENTALSCAPE=___Authorization_Key___
 REACT_APP_MAPBOX_ACCESS_TOKEN=___React_Mapbox_Access_Token___
 </code></pre>
 <p>Whitout those values, the app can't start properly.</p>
@@ -65,9 +66,9 @@ requests.</p>
 <li><a href="https://github.com/jherax/mapbox-demo/blob/master/backend/graphql/__tests__/getCitiesByName.http">getCitiesByName.http</a></li>
 <li><a href="https://github.com/jherax/mapbox-demo/blob/master/backend/graphql/__tests__/getCitiesByCountry.http">getCitiesByCountry.http</a></li>
 <li><a href="https://github.com/jherax/mapbox-demo/blob/master/backend/graphql/__tests__/getCitiesByLanguage.http">getCitiesByLanguage.http</a></li>
-<li><a href="https://github.com/jherax/mapbox-demo/blob/master/src/views/Rentalscape/services/__tests__/getRegionConfig.http">getRegionConfig.http</a></li>
-<li><a href="https://github.com/jherax/mapbox-demo/blob/master/src/views/Rentalscape/services/__tests__/getRegionNames.http">getRegionNames.http</a></li>
-<li><a href="https://github.com/jherax/mapbox-demo/blob/master/src/views/Rentalscape/services/__tests__/getProperties.http">getProperties.http</a></li>
+<li><a href="https://github.com/jherax/mapbox-demo/blob/master/src/views/Rentalscape/__tests__/getRegionDetails.http">getRegionDetails.http</a></li>
+<li><a href="https://github.com/jherax/mapbox-demo/blob/master/src/views/Rentalscape/__tests__/getRegionHouses.http">getRegionHouses.http</a></li>
+<li><a href="https://github.com/jherax/mapbox-demo/blob/master/src/views/Rentalscape/__tests__/getRegionNames.http">getRegionNames.http</a></li>
 </ul>
 <h2 id="applications">Applications</h2>
 <p>The Express backend is started by running <code class="prettyprint">npm run dev:server</code>. The server is
