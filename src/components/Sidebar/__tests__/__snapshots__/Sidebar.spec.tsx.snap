@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing <Sidebar /> should render correctly when all expected properties are present 1`] = `
+<DocumentFragment>
+  <section
+    class="sc-bdvuGq gFwqKT"
+    id="Sidebar"
+  >
+    <header
+      class="sc-gsDLol iMnAik"
+    >
+      <section
+        id="box-titles"
+      >
+        <div
+          id="box-image"
+        >
+          <img
+            alt="Rentalscape"
+            src="https://placer-ca-str-public-portal.deckard.com/rental-scape-logo.png"
+          />
+        </div>
+        <div
+          id="box-title"
+        >
+          <h1>
+            Short-Term Rental (STR)
+          </h1>
+          <h2>
+            PUBLIC PORTAL
+          </h2>
+        </div>
+      </section>
+      <section
+        id="box-region-logo"
+      >
+        <img
+          alt="region logo"
+          src="https://images.wikia.com/halo/es/images/e/e3/BioShock_LE_Logo.png"
+        />
+      </section>
+    </header>
+    <article
+      class="sc-dkPuFg fxVDij"
+    >
+      <section>
+        <h2>
+          Program Stats
+        </h2>
+        <ul>
+          <li
+            class="sc-hKwCKL bKMbmc"
+          >
+            <div>
+              <span>
+                3334
+              </span>
+              <label>
+                Licensed Short-Term Rental properties
+              </label>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </article>
+    <article
+      class="sc-eCImbG vjVyx"
+    >
+      <section>
+        <h2>
+          Useful Links
+        </h2>
+        <ul>
+          <li>
+            <span>
+              24/7 hotline: 
+            </span>
+            <a
+              href="tel:530-448-8003"
+              rel="noopener noreferrer nofollow"
+            >
+              530-448-8003
+            </a>
+          </li>
+          <li>
+            <span>
+              Complaint email: 
+            </span>
+            <a
+              href="mailto:strcompliance@placer.ca.gov"
+              rel="noopener noreferrer nofollow"
+            >
+              strcompliance@placer.ca.gov
+            </a>
+          </li>
+        </ul>
+      </section>
+    </article>
+    <footer
+      class="sc-jRQCJB hQmAtw"
+    >
+      <p>
+        Powered by Rentalscape
+      </p>
+      <p>
+        Engineered by DECKARD TECHNOLOGIES
+      </p>
+    </footer>
+  </section>
+</DocumentFragment>
+`;

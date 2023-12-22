@@ -1,5 +1,5 @@
 import {MockedProvider} from '@apollo/client/testing';
-import {render, screen} from '@testing-library/react';
+import {queryByAttribute, render, screen} from '@testing-library/react';
 
 import loadApolloErrors from '../../../utils/loadApolloErrors';
 import logger from '../../../utils/logger';
@@ -13,6 +13,7 @@ jest.mock('react-map-gl');
 jest.spyOn(logger, 'info');
 
 loadApolloErrors();
+const getById = queryByAttribute.bind(null, 'id');
 
 /**
  * @@delay: ms to prevent React from batching the loading state away.
@@ -42,9 +43,31 @@ const graphqlMocks = [
   },
 ];
 
+/**
+ * @see https://jestjs.io/docs/snapshot-testing
+ * @see https://testing-library.com/docs/react-testing-library/setup
+ */
 describe('Testing <Rentalscape />', () => {
+  it('should render correctly when there are no fetched data', async () => {
+    const emptyGqlMocks = [...graphqlMocks];
+    emptyGqlMocks[0].result = {
+      data: {region: {items: []}},
+    };
+    emptyGqlMocks[1].result = {
+      data: {region: null as any},
+    };
+
+    const {asFragment} = render(
+      <MockedProvider mocks={emptyGqlMocks} addTypename={false}>
+        <Rentalscape />
+      </MockedProvider>,
+    );
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+
   it('should render Sidebar and Mapbox sections', async () => {
-    render(
+    const {asFragment, container} = render(
       <MockedProvider mocks={graphqlMocks} addTypename={false}>
         <Rentalscape />
       </MockedProvider>,
@@ -52,5 +75,8 @@ describe('Testing <Rentalscape />', () => {
 
     expect(await screen.findByText('Loading...')).toBeInTheDocument();
     expect(await screen.findByText('PUBLIC PORTAL')).toBeInTheDocument();
+    expect(getById(container, 'Sidebar')).toBeInTheDocument();
+    expect(getById(container, 'Mapbox')).toBeInTheDocument();
+    expect(asFragment()).toMatchSnapshot();
   });
 });

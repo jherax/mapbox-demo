@@ -71,7 +71,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "test": "react-scripts test --watchAll=false",
+    "test": "react-scripts test --watchAll",
     "test:be": "jest -c=backend/setup/jest.config.js --detectOpenHandles",
     "test:staged:be": "cross-env CI=true jest -c=backend/setup/jest.config.js --bail --findRelatedTests",
     "test:staged:fe": "cross-env CI=true react-scripts test --env=jsdom --bail --findRelatedTests",
