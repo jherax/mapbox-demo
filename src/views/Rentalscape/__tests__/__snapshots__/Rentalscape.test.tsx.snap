@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing <Rentalscape /> should render Sidebar and Mapbox sections 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-furvoW fZerpl"
+  >
+    <section
+      class="sc-gsDLol exsRMj"
+      id="Sidebar"
+    >
+      <header
+        class="sc-dkPuFg dDZVkM"
+      >
+        <section
+          id="box-titles"
+        >
+          <div
+            id="box-image"
+          >
+            <img
+              alt="Rentalscape"
+              src="https://placer-ca-str-public-portal.deckard.com/rental-scape-logo.png"
+            />
+          </div>
+          <div
+            id="box-title"
+          >
+            <h1>
+              Short-Term Rental (STR)
+            </h1>
+            <h2>
+              PUBLIC PORTAL
+            </h2>
+          </div>
+        </section>
+        <section
+          id="box-region-logo"
+        >
+          <img
+            alt="region logo"
+            src=""
+          />
+        </section>
+      </header>
+      <article
+        class="sc-hKwCKL dpGFJw"
+      >
+        <section>
+          <h2>
+            Program Stats
+          </h2>
+          <ul />
+        </section>
+      </article>
+      <article
+        class="sc-jRQCJB kxYKQA"
+      >
+        <section>
+          <h2>
+            Useful Links
+          </h2>
+          <ul />
+        </section>
+      </article>
+      <footer
+        class="sc-gKcmaw Qnmrq"
+      >
+        <p>
+          Powered by Rentalscape
+        </p>
+        <p>
+          Engineered by DECKARD TECHNOLOGIES
+        </p>
+      </footer>
+    </section>
+    <section
+      class="sc-bdvuGq lkfqBF"
+      id="Mapbox"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Testing <Rentalscape /> should render correctly when there are no fetched data 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-furvoW fZerpl"
+  >
+    <section
+      class="sc-iCfLYb drpPoI"
+    >
+      <pre>
+        Loading...
+      </pre>
+    </section>
+  </div>
+</DocumentFragment>
+`;

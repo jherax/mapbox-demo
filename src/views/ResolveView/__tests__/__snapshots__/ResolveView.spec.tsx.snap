@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing <ResolveView /> should render correctly when an error is present 1`] = `
+<DocumentFragment>
+  <section
+    class="sc-bdvuGq foGWrU"
+  >
+    <pre>
+      Something went wrong
+    </pre>
+  </section>
+</DocumentFragment>
+`;
+
+exports[`Testing <ResolveView /> should render correctly when the loading is true 1`] = `
+<DocumentFragment>
+  <section
+    class="sc-bdvuGq foGWrU"
+  >
+    <pre>
+      Loading...
+    </pre>
+  </section>
+</DocumentFragment>
+`;
+
+exports[`Testing <ResolveView /> should render the default view correctly 1`] = `
+<DocumentFragment>
+  <p>
+    Default View
+  </p>
+</DocumentFragment>
+`;
