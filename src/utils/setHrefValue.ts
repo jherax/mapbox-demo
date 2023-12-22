@@ -1,8 +1,10 @@
+import trim from './trim';
+
 type HrefValueProps = {type: string; value: string};
 
 export default function setHrefValue(options: HrefValueProps) {
-  const attrType = options.type.trim().toUpperCase();
-  const attrValue = options.value.trim();
+  const attrType = trim(options.type).toUpperCase();
+  const attrValue = trim(options.value);
 
   switch (attrType) {
     case 'PHONE':

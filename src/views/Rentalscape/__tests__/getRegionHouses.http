@@ -1,21 +1,21 @@
 ### DOCS: https://github.com/Huachao/vscode-restclient#making-graphql-request
 
 @baseUrl = https://fxjney46mbeijjyti3ysri6afi.appsync-api.us-west-2.amazonaws.com/graphql
-@auth_token = {{$dotenv REACT_APP_AUTH_TOKEN}}
+@auth_token = {{$dotenv REACT_APP_AUTH_RENTALSCAPE}}
 
 #####################
-### GET PROPERTIES
-# @name GetProperties
+### GET PROPERTIES (HOUSES) BY REGION
+# @name GetRegionHouses
 
 POST {{ baseUrl }}
 Content-Type: application/json
 Authorization: Bearer {{ auth_token }}
 X-REQUEST-TYPE: GraphQL
 
-query GetProperties($regionId: String!, $nextToken: String) {
+query GetRegionHouses($regionId: String!, $nextToken: String) {
   region: getRegion(regionName: $regionId) {
     properties(
-      limit: 10
+      limit: 3
       nextToken: $nextToken
       filter: { address: { size: { gt: 0 } } }
     ) {

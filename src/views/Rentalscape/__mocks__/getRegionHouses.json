@@ -1,0 +1,81 @@
+{
+  "region": {
+    "properties": {
+      "nextToken": "eyJ2ZXJzaW9uIjozLCJ0b2tlbiI6IkFnVjRVQXB0V0d5TEp2cFZCcVZhZkVoMFZRVzJiQjlUcGJLN1NaMEFMZFc4VVU0QWV3QUNBQWRCY0hCVGVXNWpBQkZGYm1OeWVYQjBhVzl1UTI5dWRHVjRkQUFWWVhkekxXTnllWEIwYnkxd2RXSnNhV010YTJWNUFFUkJhazlsVEVOb1RtMXdNMjl2YVc1TGJrUkRNRU4yVkZkbGRHRlhWVEZJTjJ0SGJIZHZVUzlGT1hoVmVIWlVWM1pLUW5nelNXWmlla2xPYzAxWWFYZG1Va0U5UFFBQkFBZGhkM010YTIxekFFdGhjbTQ2WVhkek9tdHRjenAxY3kxM1pYTjBMVEk2T1RBeU1URTNNelEwTXpNek9tdGxlUzh4TmpVek1EaGlOaTB3WTJNNExUUmpOMkV0WW1FMFlTMHhaRGswWXpNNU9EZzJPRFVBdUFFQ0FRQjRlZUdaL2RxRUV6WEtsQk1rNWtWQWFXYTFvSTdHdyt4M251UXhQTlZ4RjVFQmdWQUxGVE1EelB1ZE5RSVZSRCtTQlFBQUFINHdmQVlKS29aSWh2Y05BUWNHb0c4d2JRSUJBREJvQmdrcWhraUc5dzBCQndFd0hnWUpZSVpJQVdVREJBRXVNQkVFREZXZ0dXb2pVRGxaSW5zbnJ3SUJFSUE3NlJuQmhWOWtmc2NhUFF1VU5FelllQ1lKODEzcmJ0ZkEreWN5VXNPMS9PTmt4MUZ6L25FUitMbDdnaDJGdEx0aUJwRXppbXQra2ZtTUwwZ0NBQUFRQUtvR05XdnlTaWpJaWlkL2ZBeDdsQVNydWJQcDBYZ2JQVXBTVWJ5QlVpVFpLZXFHaXJMMzc4SWFFbG9qYnlWTEVmLy8vLzhBQUFBQkFBQUFBQUFBQUFBQUFBQUJBQUFDUmltQ2NwbmpxTGd0aldtZjBuUjlyWEJIZFRSOVdRYnZHVFBGaTN1TEVoY0lhRUNxVnBPZWQ3cmRxa1RnVDloQmZCSDBqbmZYQTA0V2tSZG1ETE04Z2ZyN29CcnMxUmhZUlQ1U0ozT3hJcmxZa1B2TTR1RTRHOWhBMjJnejY0Nk1CMTBBcldoUVhna1dIU1FLSVp5THBmSkFLem5MeFFvVVBCWk1aUGY2OGlwcHRDV0UzYkU1SG9obXoxSDJCYnlsSEs2OFlMdmtQSkM2UFFxYVlnTGxKM3J2N0pXcjhkVlpwbk9ZZ1pya1JYTUtwQzkvS3pUaXYvZCtHRU5rWUgxeWs4NnF5a3MyQUVhSjZZbDNxNGFSRVFWL1paVSsyR280bUhsd3FrRzBEUzVtUDhoTDlwUmhGQ1dORDBPVXluK25Fd3dxVXJNRHB2ampWZFE4a2dDNzhHa3QraEZaUDMycWM5QmliWWtvSDl4WmpiTlc2UHkzOUFEeG5LU1Brb0tqd210VkZidTJhT29OUWFSSCtIaklxcnNCZTJQMTJFWmthOEFxRXdhRGova3hSM2hFeitMOVo3THhIMm9rYWk5MlMxRks2NWRyWERtV05iYUpaN1VUTnMvbllwZkxKUkRnWkVYd1NJN3RwbWkzTW5ZUU80SklCY3k5SDZ5TXpLemRvc2x0dmE3dExUbzhxNWNXQlRVRkJiZHBzYWNCaHdxdzc3VTZRU3ZXWStnc2dEWVRTbWhZdDhGWTBFcWd2RkdhT2pkODBseCtheGkrWEkwb2wrejgxZW85bDBON0Qydnd6V2Vpa3lKaENxQThwZFA1YU5QN2JnNjgrNFEwRDdvSllOS2RNeVNYRmVlOXVIbTQxNHdsYmJBRlBVYlRxa2JNU3UzNWN6NWRtczF2R2kzUjVuMWlrdnpQdk95KzFkTWFGUXc2ZmdLRWhodFpKWUY4bzRtbXo5SHFtcFpQSE1rNTZqNzg1WFNPcitFd1FZVlNkOFl6UWl6ZEVUa3l0YSt6cFJRSVk1Q0hKWlBqbzd4MEkxUzV4SS9xclFvaXloVUFaekJsQWpCUGZLQTAvNVZRWDBmdDBOZTBWSlN6ZmdwYXlkOEpSU0xRU0dKS2owcktmQTdLVGtoTjlQT1lKSkVsM051bm9lOENNUUM2TEhTdUlBU1E2Vm9PTHF0MG0xOU1zTmlDUU1OWk9GdHNCSkpHeWFIVXBucUpBcSt6bDBhUUdlU3JiUDBCWHM4PSJ9",
+      "items": [
+        {
+          "deckardId": "APN-CA-PLACER-093400014000",
+          "displayInfo": [
+            {
+              "label": "License",
+              "value": "STR22-5918"
+            }
+          ],
+          "isLicensed": true,
+          "types": ["LICENSED"],
+          "geo": {
+            "lat": 39.190257458488425,
+            "lng": -120.11636275650973
+          },
+          "geo5": "GEO5STRING",
+          "address": "2755 N Lake Blvd 36 Tahoe City CA 96145",
+          "contact": null,
+          "licenses": {
+            "items": []
+          },
+          "listings": {
+            "items": []
+          }
+        },
+        {
+          "deckardId": "APN-CA-PLACER-093400035000",
+          "displayInfo": [
+            {
+              "label": "License",
+              "value": "STR22-6857"
+            }
+          ],
+          "isLicensed": true,
+          "types": ["LICENSED"],
+          "geo": {
+            "lat": 39.19000062771026,
+            "lng": -120.11588242993494
+          },
+          "geo5": "GEO5STRING",
+          "address": "2755 N Lake Blvd 11 Tahoe City CA 96145",
+          "contact": null,
+          "licenses": {
+            "items": []
+          },
+          "listings": {
+            "items": []
+          }
+        },
+        {
+          "deckardId": "APN-CA-PLACER-095390021000",
+          "displayInfo": [
+            {
+              "label": "License",
+              "value": "STR22-6092"
+            }
+          ],
+          "isLicensed": true,
+          "types": ["LICENSED"],
+          "geo": {
+            "lat": 39.17125422794592,
+            "lng": -120.23263719897322
+          },
+          "geo5": "GEO5STRING",
+          "address": "2101 Scott Peak Pl 10 Alpine Meadows CA 96146",
+          "contact": null,
+          "licenses": {
+            "items": []
+          },
+          "listings": {
+            "items": []
+          }
+        }
+      ]
+    }
+  }
+}

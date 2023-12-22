@@ -145,11 +145,8 @@ export default function Sidebar(props: SidebarProps) {
         <section>
           <h2>Program Stats</h2>
           <ul>
-            {props.legends.map(item => (
-              <StatsItem
-                key={`li-legend-${item.label}`}
-                $bulletColor={item.bulletColor}
-              >
+            {props.legends.map((item, i) => (
+              <StatsItem key={`li-legend-${i}`} $bulletColor={item.bulletColor}>
                 <div>
                   <span>{item.count}</span>
                   <label>{item.label}</label>
@@ -164,8 +161,8 @@ export default function Sidebar(props: SidebarProps) {
         <section>
           <h2>Useful Links</h2>
           <ul>
-            {props.links.map(item => (
-              <li key={`li-link-${item.label}`}>
+            {props.links.map((item, i) => (
+              <li key={`li-link-${i}`}>
                 <span>{item.label}</span>
                 <a href={item.rawValue} rel='noopener noreferrer nofollow'>
                   {item.showValue}
@@ -184,7 +181,7 @@ export default function Sidebar(props: SidebarProps) {
   );
 }
 
-export type SidebarProps = {
+export type SidebarProps = Readonly<{
   regionLogo: string;
   legends: Array<{
     count: number;
@@ -196,4 +193,4 @@ export type SidebarProps = {
     showValue: string;
     rawValue: string;
   }>;
-};
+}>;

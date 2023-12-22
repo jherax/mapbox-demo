@@ -25,10 +25,12 @@ export default function ResolveView(props: ResolveViewProps) {
   return <>{props.children}</>;
 }
 
-type ResolveViewProps = Partial<{
-  loading: boolean;
-  error: {
-    message: string;
-  };
-  children: ReactNode;
-}>;
+export type ResolveViewProps = Readonly<
+  Partial<{
+    loading: boolean;
+    error: {
+      message: string;
+    };
+    children: ReactNode;
+  }>
+>;

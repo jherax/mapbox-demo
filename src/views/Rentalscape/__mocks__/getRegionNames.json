@@ -1,0 +1,22 @@
+{
+  "listRegions": {
+    "items": [
+      {
+        "name": "City of South Padre Island, TX",
+        "regionShortName": "townofsouthpadreisland"
+      },
+      {
+        "name": "Placer County, CA",
+        "regionShortName": "placer-ca"
+      },
+      {
+        "name": "Cathedral City, CA",
+        "regionShortName": "ca-cathedralcity"
+      },
+      {
+        "name": "City of Palm Desert, CA",
+        "regionShortName": "cityofpalmdesert"
+      }
+    ]
+  }
+}
