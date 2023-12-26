@@ -8,15 +8,18 @@ const Wrapper = styled.section`
 export default function ResolveView(props: ResolveViewProps) {
   if (props.loading) {
     return (
-      <Wrapper>
+      <Wrapper className='ResolveView_loading'>
         <pre>Loading...</pre>
       </Wrapper>
     );
   }
 
   if (props.error) {
+    if (typeof props.beforeRenderError === 'function') {
+      props.beforeRenderError();
+    }
     return (
-      <Wrapper>
+      <Wrapper className='ResolveView_error'>
         <pre>{props.error.message}</pre>
       </Wrapper>
     );
@@ -32,5 +35,6 @@ export type ResolveViewProps = Readonly<
       message: string;
     };
     children: ReactNode;
+    beforeRenderError: () => void;
   }>
 >;

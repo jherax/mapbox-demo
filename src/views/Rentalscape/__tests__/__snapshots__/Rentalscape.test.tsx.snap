@@ -39,7 +39,7 @@ exports[`Testing <Rentalscape /> should render Sidebar and Mapbox sections 1`] =
         >
           <img
             alt="region logo"
-            src=""
+            src="https://str-placer-county-ca-deploy-us-west-2-prod.s3-us-west-2.amazonaws.com/PlacerCALogo.png"
           />
         </section>
       </header>
@@ -50,7 +50,16 @@ exports[`Testing <Rentalscape /> should render Sidebar and Mapbox sections 1`] =
           <h2>
             Program Stats
           </h2>
-          <ul />
+          <ul>
+            <li
+              class="sc-eCImbG bEUqmf"
+            >
+              <div>
+                <span />
+                <label />
+              </div>
+            </li>
+          </ul>
         </section>
       </article>
       <article
@@ -60,7 +69,22 @@ exports[`Testing <Rentalscape /> should render Sidebar and Mapbox sections 1`] =
           <h2>
             Useful Links
           </h2>
-          <ul />
+          <ul>
+            <li>
+              <span />
+              <a
+                href=""
+                rel="noopener noreferrer nofollow"
+              />
+            </li>
+            <li>
+              <span />
+              <a
+                href=""
+                rel="noopener noreferrer nofollow"
+              />
+            </li>
+          </ul>
         </section>
       </article>
       <footer
@@ -88,10 +112,26 @@ exports[`Testing <Rentalscape /> should render correctly when there are no fetch
     class="sc-furvoW fZerpl"
   >
     <section
-      class="sc-iCfLYb drpPoI"
+      class="sc-iCfLYb drpPoI ResolveView_loading"
     >
       <pre>
         Loading...
+      </pre>
+    </section>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Testing <Rentalscape /> should render the error view 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-furvoW fZerpl"
+  >
+    <section
+      class="sc-iCfLYb drpPoI ResolveView_error"
+    >
+      <pre>
+        Unknown server error when fetching data
       </pre>
     </section>
   </div>

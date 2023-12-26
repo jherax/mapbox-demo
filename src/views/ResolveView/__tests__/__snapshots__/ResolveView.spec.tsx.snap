@@ -3,7 +3,7 @@
 exports[`Testing <ResolveView /> should render correctly when an error is present 1`] = `
 <DocumentFragment>
   <section
-    class="sc-bdvuGq foGWrU"
+    class="sc-bdvuGq foGWrU ResolveView_error"
   >
     <pre>
       Something went wrong
@@ -15,7 +15,7 @@ exports[`Testing <ResolveView /> should render correctly when an error is presen
 exports[`Testing <ResolveView /> should render correctly when the loading is true 1`] = `
 <DocumentFragment>
   <section
-    class="sc-bdvuGq foGWrU"
+    class="sc-bdvuGq foGWrU ResolveView_loading"
   >
     <pre>
       Loading...
