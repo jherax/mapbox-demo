@@ -1,4 +1,3 @@
-import {useQuery} from '@apollo/client';
 import styled from 'styled-components';
 
 import Mapbox from '../../components/Mapbox';
@@ -7,14 +6,7 @@ import logger from '../../utils/logger';
 import setHrefValue from '../../utils/setHrefValue';
 import trim from '../../utils/trim';
 import ResolveView from '../ResolveView';
-import {
-  REGION_DETAILS,
-  type RegionDetailsResponse,
-} from './services/getRegionDetails';
-import {
-  REGION_HOUSES,
-  type RegionHousesResponse,
-} from './services/getRegionHouses';
+import {useRegionDetails, useRegionHouses} from './services/hooks';
 
 const Wrapper = styled.div`
   display: flex;
@@ -28,22 +20,12 @@ const Wrapper = styled.div`
 `;
 
 function Rentalscape() {
-  const regionDetails = useQuery<RegionDetailsResponse>(
-    REGION_DETAILS.query,
-    REGION_DETAILS.options,
-  );
-
-  const regionHouses = useQuery<RegionHousesResponse>(
-    REGION_HOUSES.query,
-    REGION_HOUSES.options,
-  );
+  const regionDetails = useRegionDetails();
+  const regionHouses = useRegionHouses();
 
   logger.info({
-    config: {loading: regionDetails.loading, data: regionDetails.data},
-    properties: {
-      loading: regionHouses.loading,
-      data: regionHouses.data,
-    },
+    details: {loading: regionDetails.loading, data: regionDetails.data},
+    houses: {loading: regionHouses.loading, data: regionHouses.data},
   });
 
   const firstItem = regionDetails.data?.region?.items[0];

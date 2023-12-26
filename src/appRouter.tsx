@@ -12,7 +12,7 @@ const AppRouter = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Outlet />}>
       <Route path='' element={<Autocomplete maxWidth='500px' />} />
-      <Route path='/mapbox-gl' element={<Rentalscape />} />
+      <Route path='/mapbox' element={<Rentalscape />} />
     </Route>,
   ),
 );
