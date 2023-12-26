@@ -3,6 +3,7 @@ import {styled} from 'styled-components';
 const $marginLeft = '5px';
 
 export const MainWrapper = styled.section<{$maxWidth: string}>`
+  margin: 30px;
   color: #444;
   fieldset {
     max-width: ${props => props.$maxWidth};

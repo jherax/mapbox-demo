@@ -1,0 +1,247 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing <Autocomplete /> should add a tag when pressing ENTER 1`] = `
+<DocumentFragment>
+  <section
+    class="sc-gsDLol dUzVSc"
+  >
+    <fieldset>
+      <legend>
+        Cities around the world
+      </legend>
+      <section
+        class="countries_container"
+      >
+        <label
+          for=":r1:"
+        >
+          Search by country:
+        </label>
+        <select
+          class="countries_dropdown"
+          id=":r1:"
+          name="countries"
+        >
+          <option
+            value=""
+          >
+            select...
+          </option>
+          <option
+            value="Colombia"
+          >
+            Colombia
+          </option>
+          <option
+            value="United States"
+          >
+            United States
+          </option>
+        </select>
+      </section>
+      <section
+        class="sc-dkPuFg autocomplete_container"
+      >
+        <label
+          class="sc-hKwCKL autocomplete_tags_item"
+        >
+          svalbard
+        </label>
+        <input
+          class="autocomplete_input"
+          name="cities_searchbox"
+          placeholder="Cities..."
+          type="text"
+        />
+      </section>
+      <section
+        class="sc-eCImbG iUaUwZ autocomplete_results"
+      />
+    </fieldset>
+  </section>
+</DocumentFragment>
+`;
+
+exports[`Testing <Autocomplete /> should get cities by country, trigger the autocomplete and select the first suggestion 1`] = `
+<DocumentFragment>
+  <section
+    class="sc-gsDLol dUzVSc"
+  >
+    <fieldset>
+      <legend>
+        Cities around the world
+      </legend>
+      <section
+        class="countries_container"
+      >
+        <label
+          for=":r0:"
+        >
+          Search by country:
+        </label>
+        <select
+          class="countries_dropdown"
+          id=":r0:"
+          name="countries"
+        >
+          <option
+            value=""
+          >
+            select...
+          </option>
+          <option
+            value="Colombia"
+          >
+            Colombia
+          </option>
+          <option
+            value="United States"
+          >
+            United States
+          </option>
+        </select>
+      </section>
+      <section
+        class="sc-dkPuFg autocomplete_container"
+      >
+        <label
+          class="sc-hKwCKL autocomplete_tags_item"
+        >
+          arinsal
+        </label>
+        <input
+          class="autocomplete_input"
+          name="cities_searchbox"
+          placeholder="Cities..."
+          type="text"
+        />
+      </section>
+      <section
+        class="sc-eCImbG iUaUwZ autocomplete_results"
+      >
+        <div
+          class="sc-jRQCJB autocomplete_results_item"
+          role="listitem"
+        >
+          Arinsal
+        </div>
+        <div
+          class="sc-jRQCJB autocomplete_results_item"
+          role="listitem"
+        >
+          Andorra la Vella
+        </div>
+      </section>
+    </fieldset>
+  </section>
+</DocumentFragment>
+`;
+
+exports[`Testing <Autocomplete /> should render correctly when there are no fetched data 1`] = `
+<DocumentFragment>
+  <section
+    class="sc-gsDLol dUzVSc"
+  >
+    <fieldset>
+      <legend>
+        Cities around the world
+      </legend>
+      <section
+        class="countries_container"
+      >
+        <label
+          for=":r2:"
+        >
+          Search by country:
+        </label>
+        <select
+          class="countries_dropdown"
+          id=":r2:"
+          name="countries"
+        >
+          <option
+            value=""
+          >
+            select...
+          </option>
+          <option
+            value="Colombia"
+          >
+            Colombia
+          </option>
+          <option
+            value="United States"
+          >
+            United States
+          </option>
+        </select>
+      </section>
+      <section
+        class="sc-dkPuFg autocomplete_container"
+      >
+        <input
+          class="autocomplete_input"
+          disabled=""
+          name="cities_searchbox"
+          placeholder="Cities..."
+          type="text"
+        />
+      </section>
+      <section
+        class="sc-eCImbG iUaUwZ autocomplete_results"
+      />
+    </fieldset>
+  </section>
+</DocumentFragment>
+`;
+
+exports[`Testing <Autocomplete /> should render the error view 1`] = `
+<DocumentFragment>
+  <section
+    class="sc-gsDLol dUzVSc"
+  >
+    <fieldset>
+      <legend>
+        Cities around the world
+      </legend>
+      <section
+        class="countries_container"
+      >
+        <label
+          for=":r3:"
+        >
+          Search by country:
+        </label>
+        <select
+          class="countries_dropdown"
+          id=":r3:"
+          name="countries"
+        >
+          <option
+            value=""
+          >
+            select...
+          </option>
+          <option
+            value="Colombia"
+          >
+            Colombia
+          </option>
+          <option
+            value="United States"
+          >
+            United States
+          </option>
+        </select>
+      </section>
+      <section
+        class="sc-bdvuGq foGWrU ResolveView_error"
+      >
+        <pre>
+          Unknown server error when fetching data
+        </pre>
+      </section>
+    </fieldset>
+  </section>
+</DocumentFragment>
+`;
