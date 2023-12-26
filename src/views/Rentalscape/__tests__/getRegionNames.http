@@ -1,6 +1,6 @@
 ### DOCS: https://github.com/Huachao/vscode-restclient#making-graphql-request
 
-@baseUrl = https://fxjney46mbeijjyti3ysri6afi.appsync-api.us-west-2.amazonaws.com/graphql
+@baseUrl = {{$dotenv REACT_APP_GRAPHQL_RENTALSCAPE}}
 @auth_token = {{$dotenv REACT_APP_AUTH_RENTALSCAPE}}
 
 ######################

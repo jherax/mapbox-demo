@@ -48,6 +48,8 @@ export const REGION_DETAILS: ApolloClientQueryOptions = {
     context: {
       clientName: 'RENTALSCAPE',
     },
+    fetchPolicy: 'network-only', // Used for first execution
+    nextFetchPolicy: 'cache-first',
   },
 } as const;
 
@@ -64,16 +66,19 @@ export type RegionDetailsResponse = {
         colorHex: string;
         count: number;
         formattedText: string;
-        tooltip: string;
+        tooltip?: string;
         propertyType: string;
       }>;
 
-      statistics: JSONObject[];
+      statistics: Array<{
+        type: string;
+        value: string;
+      }>;
 
       links: Array<{
         displayValue: string;
         label: string;
-        tooltip: string;
+        tooltip?: string;
         type: string;
         value: string;
       }>;

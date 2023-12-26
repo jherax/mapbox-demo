@@ -1,12 +1,9 @@
-import {useLazyQuery} from '@apollo/client';
 import {useEffect, useRef, useState} from 'react';
 
 import Countries from '../../components/Countries';
 import buildKey from '../../utils/buildKey';
-import {
-  CITIES_BY_COUNTRY,
-  type CitiesByCountryResponse,
-} from './services/getCitiesByCountry';
+import ResolveView from '../ResolveView';
+import {useLazyCitiesByCountry} from './services/hooks';
 import {
   MainWrapper,
   ResultsContainer,
@@ -30,11 +27,7 @@ export type AutocompleteProps = Readonly<{
 
 export default function Autocomplete(props: AutocompleteProps) {
   const [disabledInput, setDisabledInput] = useState(true);
-  const [getCities, {/* loading, error, */ data}] =
-    useLazyQuery<CitiesByCountryResponse>(
-      CITIES_BY_COUNTRY.query,
-      CITIES_BY_COUNTRY.options,
-    );
+  const {getCities, error, data} = useLazyCitiesByCountry();
 
   const onChangeCountry = (country: string) => {
     setDisabledInput(!country);
@@ -116,41 +109,46 @@ export default function Autocomplete(props: AutocompleteProps) {
       <fieldset>
         <legend>Cities around the world</legend>
         <Countries onChangeCountry={onChangeCountry}></Countries>
-        <TagsContainer className='autocomplete_container'>
-          {tags.map((tag, i) => {
-            const key = `tag-${buildKey()}-${i}`;
-            return (
-              <TagsItem
-                key={key}
-                value={tag}
-                onClick={onClickTag}
-                className='autocomplete_tags_item'
-              ></TagsItem>
-            );
-          })}
-          <input
-            type='text'
-            name='cities_searchbox'
-            className='autocomplete_input'
-            placeholder='Cities...'
-            ref={inputRef}
-            disabled={disabledInput}
-            onKeyUp={handleKeyUp}
-          />
-        </TagsContainer>
-        <ResultsContainer $show={+showResults} className='autocomplete_results'>
-          {results.map((result, i) => {
-            const key = `result-${buildKey()}-${i}`;
-            return (
-              <ResultsItem
-                key={key}
-                value={result.name}
-                onClick={onClickResults}
-                className='autocomplete_results_item'
-              ></ResultsItem>
-            );
-          })}
-        </ResultsContainer>
+        <ResolveView error={error}>
+          <TagsContainer className='autocomplete_container'>
+            {tags.map((tag, i) => {
+              const key = `tag-${buildKey()}-${i}`;
+              return (
+                <TagsItem
+                  key={key}
+                  value={tag}
+                  onClick={onClickTag}
+                  className='autocomplete_tags_item'
+                ></TagsItem>
+              );
+            })}
+            <input
+              type='text'
+              name='cities_searchbox'
+              className='autocomplete_input'
+              placeholder='Cities...'
+              ref={inputRef}
+              disabled={disabledInput}
+              onKeyUp={handleKeyUp}
+            />
+          </TagsContainer>
+          <ResultsContainer
+            $show={+showResults}
+            className='autocomplete_results'
+          >
+            {results.map((result, i) => {
+              const key = `result-${buildKey()}-${i}`;
+              return (
+                <ResultsItem
+                  key={key}
+                  value={result.name}
+                  onClick={onClickResults}
+                  className='autocomplete_results_item'
+                ></ResultsItem>
+              );
+            })}
+          </ResultsContainer>
+        </ResolveView>
       </fieldset>
     </MainWrapper>
   );

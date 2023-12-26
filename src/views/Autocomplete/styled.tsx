@@ -75,6 +75,10 @@ export const MainWrapper = styled.section<{$maxWidth: string}>`
         }
       }
     }
+
+    section.ResolveView_error {
+      border: solid 1px #a05e6c;
+    }
   }
 `;
 

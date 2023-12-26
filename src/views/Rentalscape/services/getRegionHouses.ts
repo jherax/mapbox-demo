@@ -81,6 +81,8 @@ export const REGION_HOUSES: ApolloClientQueryOptions = {
     context: {
       clientName: 'RENTALSCAPE',
     },
+    fetchPolicy: 'network-only', // Used for first execution
+    nextFetchPolicy: 'cache-first',
   },
 } as const;
 
