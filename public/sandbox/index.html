@@ -9,6 +9,7 @@
   const pathname = window.location.pathname;
   new window.EmbeddedSandbox({
     target: '#embedded-sandbox',
+    runTelemetry: false,
     // Pass through your server href if you are embedding on an endpoint.
     // Otherwise, you can pass whatever endpoint you want Sandbox to start up with here.
     initialEndpoint: fullpath.replace(pathname, '/graphql'),
