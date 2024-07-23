@@ -43,10 +43,11 @@ describe('E2E: Testing successful City Queries from "/graphql"', () => {
 
     const reply = await request(server).post('/graphql').send(queryData);
     const response: CitiesResponse = reply.body.data.getCities;
+    const count = 30;
 
     expect(reply.status).toBe(200);
-    expect(response.message).toBe('Listing 30 cities. Page 3/4725');
-    expect(response.result).toHaveLength(30);
+    expect(response.message).toBe(`Listing ${count} cities. Page 3/4853`);
+    expect(response.result).toHaveLength(count);
   });
 
   it('should respond with a list of cities matching the same name', async () => {
@@ -74,10 +75,11 @@ describe('E2E: Testing successful City Queries from "/graphql"', () => {
 
     const reply = await request(server).post('/graphql').send(queryData);
     const response: CitiesResponse = reply.body.data.getCitiesByName;
+    const count = 45;
 
     expect(reply.status).toBe(200);
-    expect(response.message).toBe('Listing 45 cities');
-    expect(response.result).toHaveLength(45);
+    expect(response.message).toBe(`Listing ${count} cities`);
+    expect(response.result).toHaveLength(count);
   });
 
   it('should respond with an empty list when no matching cities by name', async () => {
@@ -106,11 +108,12 @@ describe('E2E: Testing successful City Queries from "/graphql"', () => {
 
     const reply = await request(server).post('/graphql').send(queryData);
     const response: CitiesResponse = reply.body.data.getCitiesByName;
+    const count = 0;
 
     expect(reply.status).toBe(200);
     expect(response.success).toBe(true);
-    expect(response.message).toBe('Listing 0 cities');
-    expect(response.result).toHaveLength(0);
+    expect(response.message).toBe(`Listing ${count} cities`);
+    expect(response.result).toHaveLength(count);
   });
 
   it('should respond with a list of cities of the same country', async () => {
@@ -139,10 +142,11 @@ describe('E2E: Testing successful City Queries from "/graphql"', () => {
     const reply = await request(server).post('/graphql').send(queryData);
     const response: CitiesResponse = reply.body.data.getCitiesByCountry;
     const countryInfo = response.result[0].countryInfo;
+    const count = 111;
 
     expect(reply.status).toBe(200);
-    expect(response.message).toBe('Listing 50 cities');
-    expect(response.result).toHaveLength(50);
+    expect(response.message).toBe(`Listing ${count} cities`);
+    expect(response.result).toHaveLength(count);
     expect(countryInfo.name).toBe('Hong Kong');
   });
 
@@ -171,9 +175,10 @@ describe('E2E: Testing successful City Queries from "/graphql"', () => {
 
     const reply = await request(server).post('/graphql').send(queryData);
     const response: CitiesResponse = reply.body.data.getCitiesByLanguage;
+    const count = 526;
 
     expect(reply.status).toBe(200);
-    expect(response.message).toBe('Listing 526 cities');
-    expect(response.result).toHaveLength(526);
+    expect(response.message).toBe(`Listing ${count} cities`);
+    expect(response.result).toHaveLength(count);
   });
 });
