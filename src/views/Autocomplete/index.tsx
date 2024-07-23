@@ -61,16 +61,12 @@ export default function Autocomplete(props: AutocompleteProps) {
       cleanInputText(inputRef);
       setShowResults(false);
     } else if (e.code === 'Enter') {
-      const tag = removeSpace(currentText);
-      if (tag && tags.indexOf(tag) === -1) {
-        setTags([...tags, tag]);
-      }
-      cleanInputText(inputRef);
+      onClickSuggestion(currentText);
     } else if (currentText) {
-      const searchCity = ucase(currentText);
+      const prefix = ucase(currentText);
       // search criteria: match cities starting with ...
       const matchedCities = ALL_CITIES['current'].filter(city => {
-        return !city.hidden && ucase(city.name).startsWith(searchCity);
+        return !city.hidden && ucase(city.name).startsWith(prefix);
       });
       setResults(matchedCities);
       if (matchedCities.length && !showResults) {
@@ -79,10 +75,13 @@ export default function Autocomplete(props: AutocompleteProps) {
     }
   };
 
-  const onClickResults = (suggestion: string) => {
-    setTags([...tags, removeSpace(suggestion)]);
+  const onClickSuggestion = (suggestion: string) => {
+    const tag = removeSpace(suggestion);
+    if (tag && tags.indexOf(tag) === -1) {
+      setTags([...tags, tag]);
+    }
     const selectedCity = ALL_CITIES['current'].find(
-      city => city.name === suggestion,
+      city => ucase(city.name) === ucase(suggestion),
     );
     if (selectedCity != null) {
       selectedCity.hidden = true;
@@ -142,7 +141,7 @@ export default function Autocomplete(props: AutocompleteProps) {
                 <ResultsItem
                   key={key}
                   value={result.name}
-                  onClick={onClickResults}
+                  onClick={onClickSuggestion}
                   className='autocomplete_results_item'
                 ></ResultsItem>
               );

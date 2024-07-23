@@ -3,7 +3,7 @@
 exports[`Testing <Autocomplete /> should add a tag when pressing ENTER 1`] = `
 <DocumentFragment>
   <section
-    class="sc-gsDLol dUzVSc"
+    class="sc-guDLey fUHaaq"
   >
     <fieldset>
       <legend>
@@ -40,10 +40,10 @@ exports[`Testing <Autocomplete /> should add a tag when pressing ENTER 1`] = `
         </select>
       </section>
       <section
-        class="sc-dkPuFg autocomplete_container"
+        class="sc-dmyCSP autocomplete_container"
       >
         <label
-          class="sc-hKwCKL autocomplete_tags_item"
+          class="sc-hLQSwg autocomplete_tags_item"
         >
           svalbard
         </label>
@@ -55,7 +55,7 @@ exports[`Testing <Autocomplete /> should add a tag when pressing ENTER 1`] = `
         />
       </section>
       <section
-        class="sc-eCImbG iUaUwZ autocomplete_results"
+        class="sc-eDLKkx dTMqXE autocomplete_results"
       />
     </fieldset>
   </section>
@@ -65,7 +65,7 @@ exports[`Testing <Autocomplete /> should add a tag when pressing ENTER 1`] = `
 exports[`Testing <Autocomplete /> should get cities by country, trigger the autocomplete and select the first suggestion 1`] = `
 <DocumentFragment>
   <section
-    class="sc-gsDLol dUzVSc"
+    class="sc-guDLey fUHaaq"
   >
     <fieldset>
       <legend>
@@ -102,10 +102,10 @@ exports[`Testing <Autocomplete /> should get cities by country, trigger the auto
         </select>
       </section>
       <section
-        class="sc-dkPuFg autocomplete_container"
+        class="sc-dmyCSP autocomplete_container"
       >
         <label
-          class="sc-hKwCKL autocomplete_tags_item"
+          class="sc-hLQSwg autocomplete_tags_item"
         >
           arinsal
         </label>
@@ -117,16 +117,16 @@ exports[`Testing <Autocomplete /> should get cities by country, trigger the auto
         />
       </section>
       <section
-        class="sc-eCImbG iUaUwZ autocomplete_results"
+        class="sc-eDLKkx dTMqXE autocomplete_results"
       >
         <div
-          class="sc-jRQCJB autocomplete_results_item"
+          class="sc-jTQCzO autocomplete_results_item"
           role="listitem"
         >
           Arinsal
         </div>
         <div
-          class="sc-jRQCJB autocomplete_results_item"
+          class="sc-jTQCzO autocomplete_results_item"
           role="listitem"
         >
           Andorra la Vella
@@ -140,7 +140,7 @@ exports[`Testing <Autocomplete /> should get cities by country, trigger the auto
 exports[`Testing <Autocomplete /> should render correctly when there are no fetched data 1`] = `
 <DocumentFragment>
   <section
-    class="sc-gsDLol dUzVSc"
+    class="sc-guDLey fUHaaq"
   >
     <fieldset>
       <legend>
@@ -177,7 +177,7 @@ exports[`Testing <Autocomplete /> should render correctly when there are no fetc
         </select>
       </section>
       <section
-        class="sc-dkPuFg autocomplete_container"
+        class="sc-dmyCSP autocomplete_container"
       >
         <input
           class="autocomplete_input"
@@ -188,7 +188,7 @@ exports[`Testing <Autocomplete /> should render correctly when there are no fetc
         />
       </section>
       <section
-        class="sc-eCImbG iUaUwZ autocomplete_results"
+        class="sc-eDLKkx dTMqXE autocomplete_results"
       />
     </fieldset>
   </section>
@@ -198,7 +198,7 @@ exports[`Testing <Autocomplete /> should render correctly when there are no fetc
 exports[`Testing <Autocomplete /> should render the error view 1`] = `
 <DocumentFragment>
   <section
-    class="sc-gsDLol dUzVSc"
+    class="sc-guDLey fUHaaq"
   >
     <fieldset>
       <legend>
@@ -235,7 +235,7 @@ exports[`Testing <Autocomplete /> should render the error view 1`] = `
         </select>
       </section>
       <section
-        class="sc-bdvuGq foGWrU ResolveView_error"
+        class="sc-beySPh duqtwh ResolveView_error"
       >
         <pre>
           Unknown server error when fetching data

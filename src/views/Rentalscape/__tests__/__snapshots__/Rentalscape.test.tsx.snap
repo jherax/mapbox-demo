@@ -3,14 +3,14 @@
 exports[`Testing <Rentalscape /> should render Sidebar and Mapbox sections 1`] = `
 <DocumentFragment>
   <div
-    class="sc-furvoW fZerpl"
+    class="sc-fsYfdN jhFlPF"
   >
     <section
-      class="sc-gsDLol exsRMj"
+      class="sc-guDLey bJAjUB"
       id="Sidebar"
     >
       <header
-        class="sc-dkPuFg dDZVkM"
+        class="sc-dmyCSP gVCNvA"
       >
         <section
           id="box-titles"
@@ -44,7 +44,7 @@ exports[`Testing <Rentalscape /> should render Sidebar and Mapbox sections 1`] =
         </section>
       </header>
       <article
-        class="sc-hKwCKL dpGFJw"
+        class="sc-hLQSwg VgcZZ"
       >
         <section>
           <h2>
@@ -52,7 +52,7 @@ exports[`Testing <Rentalscape /> should render Sidebar and Mapbox sections 1`] =
           </h2>
           <ul>
             <li
-              class="sc-eCImbG bEUqmf"
+              class="sc-eDLKkx eglPZG"
             >
               <div>
                 <span />
@@ -63,7 +63,7 @@ exports[`Testing <Rentalscape /> should render Sidebar and Mapbox sections 1`] =
         </section>
       </article>
       <article
-        class="sc-jRQCJB kxYKQA"
+        class="sc-jTQCzO kOGkHE"
       >
         <section>
           <h2>
@@ -88,7 +88,7 @@ exports[`Testing <Rentalscape /> should render Sidebar and Mapbox sections 1`] =
         </section>
       </article>
       <footer
-        class="sc-gKcmaw Qnmrq"
+        class="sc-gLLuof dTnuzm"
       >
         <p>
           Powered by Rentalscape
@@ -99,7 +99,7 @@ exports[`Testing <Rentalscape /> should render Sidebar and Mapbox sections 1`] =
       </footer>
     </section>
     <section
-      class="sc-bdvuGq lkfqBF"
+      class="sc-beySPh jhvjtQ"
       id="Mapbox"
     />
   </div>
@@ -109,10 +109,10 @@ exports[`Testing <Rentalscape /> should render Sidebar and Mapbox sections 1`] =
 exports[`Testing <Rentalscape /> should render correctly when there are no fetched data 1`] = `
 <DocumentFragment>
   <div
-    class="sc-furvoW fZerpl"
+    class="sc-fsYfdN jhFlPF"
   >
     <section
-      class="sc-iCfLYb drpPoI ResolveView_loading"
+      class="sc-iBdnpw dByDQe ResolveView_loading"
     >
       <pre>
         Loading...
@@ -125,10 +125,10 @@ exports[`Testing <Rentalscape /> should render correctly when there are no fetch
 exports[`Testing <Rentalscape /> should render the error view 1`] = `
 <DocumentFragment>
   <div
-    class="sc-furvoW fZerpl"
+    class="sc-fsYfdN jhFlPF"
   >
     <section
-      class="sc-iCfLYb drpPoI ResolveView_error"
+      class="sc-iBdnpw dByDQe ResolveView_error"
     >
       <pre>
         Unknown server error when fetching data

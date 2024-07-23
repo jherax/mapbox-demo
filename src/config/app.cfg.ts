@@ -10,7 +10,7 @@ const config = {
     urlCities: validateKey('REACT_APP_GRAPHQL_CITIES'),
 
     /**
-     * Get the token from XHR: "graphql", using the Header: "Authorization"
+     * Get the token from XHR: "graphql", using Request Header: "Authorization"
      * Inspect the Network: https://placer-ca-str-public-portal.deckard.com/
      */
     tokenRentalScape: validateKey('REACT_APP_AUTH_RENTALSCAPE'),

@@ -3,11 +3,11 @@
 exports[`Testing <Sidebar /> should render correctly when all expected properties are present 1`] = `
 <DocumentFragment>
   <section
-    class="sc-bdvuGq gFwqKT"
+    class="sc-beySPh jtEFuW"
     id="Sidebar"
   >
     <header
-      class="sc-gsDLol iMnAik"
+      class="sc-guDLey cCTkCO"
     >
       <section
         id="box-titles"
@@ -41,7 +41,7 @@ exports[`Testing <Sidebar /> should render correctly when all expected propertie
       </section>
     </header>
     <article
-      class="sc-dkPuFg fxVDij"
+      class="sc-dmyCSP epYWkH"
     >
       <section>
         <h2>
@@ -49,7 +49,7 @@ exports[`Testing <Sidebar /> should render correctly when all expected propertie
         </h2>
         <ul>
           <li
-            class="sc-hKwCKL bKMbmc"
+            class="sc-hLQSwg cdrHFZ"
           >
             <div>
               <span>
@@ -64,7 +64,7 @@ exports[`Testing <Sidebar /> should render correctly when all expected propertie
       </section>
     </article>
     <article
-      class="sc-eCImbG vjVyx"
+      class="sc-eDLKkx kggqcw"
     >
       <section>
         <h2>
@@ -97,7 +97,7 @@ exports[`Testing <Sidebar /> should render correctly when all expected propertie
       </section>
     </article>
     <footer
-      class="sc-jRQCJB hQmAtw"
+      class="sc-jTQCzO kIBlhM"
     >
       <p>
         Powered by Rentalscape
