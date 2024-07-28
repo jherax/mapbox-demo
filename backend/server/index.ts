@@ -1,74 +1,83 @@
+/* eslint-disable curly */
+import http, {type Server} from 'node:http';
 import path from 'node:path';
 
+import {type ApolloServer} from '@apollo/server';
 import {expressMiddleware} from '@apollo/server/express4';
 import cors from 'cors';
 import express, {type Express} from 'express';
-import http, {type Server} from 'http';
 
 import logger from '../utils/logger';
-import initApollo from './apollo';
 import config, {isProd} from './config';
 
-const {host: appHost, port: appPort} = config.app;
-const appPublic = config.app.public;
-let server: Server;
-let app: Express;
+export class NodeServer {
+  private _apollo: ApolloServer<ApolloServerContext>;
+  private _app: Express;
+  private _server: Server;
+  private _started = false;
 
-/**
- * Do not call, initServer() and startServer(). This will allow you to initialize and start
- * the server from different files. The initServer() function will initialize the
- * server (starts the caches, finalizes plugin registration) but does not start
- * the server. This is what you will use in your tests. The startServer() function
- * will actually start the server. This is what you will use in our main
- * entry-point for the server.
- */
-export const initServer = async () => {
-  app = express();
-  server = http.createServer(app);
-  const apollo = await initApollo();
+  constructor(apolloServer: ApolloServer<ApolloServerContext>) {
+    this._app = express();
+    this._server = http.createServer(this._app);
+    this._apollo = apolloServer;
 
-  // app.use(express.static(appPublic))
-
-  app.get('/', function (req, res) {
-    res.sendFile(path.resolve(appPublic, 'docs', 'README.html'));
-  });
-
-  app.use(
-    '/graphql',
-    cors<cors.CorsRequest>(),
-    express.json(),
-    /**
-     * expressMiddleware accepts the same arguments:
-     * an Apollo Server instance and optional configuration options.
-     * @see https://www.apollographql.com/docs/apollo-server/api/express-middleware
-     */
-    expressMiddleware(apollo, {
-      context: async ({req}) => {
-        // we remove the word Bearer that specifies the strategy used,
-        // and then pass the token to the context object in the resolvers.
-        const auth: string = req.headers.authorization ?? '';
-        const token: string = auth.replace('Bearer ', '');
-        return {token} as ApolloServerContext;
-      },
-    }),
-  );
-
-  if (!isProd) {
-    /**
-     * @see https://www.apollographql.com/docs/graphos/explorer/sandbox/
-     */
-    app.get('/sandbox', function (req, res) {
-      res.sendFile(path.resolve(appPublic, 'sandbox', 'index.html'), {
-        // root: process.cwd(),
-      });
-    });
+    // this.config()
+    this.routerConfig();
   }
 
-  return server;
-};
+  private routerConfig() {
+    const publicFolder = config.app.public;
 
-export const startServer = async () => {
-  await new Promise<void>(resolve => server.listen({port: appPort}, resolve));
-  logger.info(`🚀 Server ready at http://${appHost}:${appPort}`);
-  return server;
-};
+    // app.use(express.static(publicFolder))
+    this._app.get('/', function (req, res) {
+      res.sendFile(path.resolve(publicFolder, 'docs', 'README.html'));
+    });
+
+    this._app.use(
+      '/graphql',
+      cors<cors.CorsRequest>(),
+      express.json(),
+      /**
+       * expressMiddleware accepts the same arguments:
+       * an Apollo Server instance and optional configuration options.
+       * @see https://www.apollographql.com/docs/apollo-server/api/express-middleware
+       */
+      expressMiddleware(this._apollo, {
+        context: async ({req}) => {
+          // we remove the word Bearer that specifies the strategy used,
+          // and then pass the token to the context object in the resolvers.
+          const auth: string = req.headers.authorization ?? '';
+          const token: string = auth.replace('Bearer ', '');
+          return {token} as ApolloServerContext;
+        },
+      }),
+    );
+
+    if (!isProd) {
+      /**
+       * @see https://www.apollographql.com/docs/graphos/explorer/sandbox/
+       */
+      this._app.get('/sandbox', function (req, res) {
+        res.sendFile(path.resolve(publicFolder, 'sandbox', 'index.html'), {
+          // root: process.cwd(),
+        });
+      });
+    }
+  }
+
+  public get app(): Express {
+    return this._app;
+  }
+
+  public get server(): Server {
+    return this._server;
+  }
+
+  public async start(): Promise<void> {
+    if (this._started) return Promise.resolve();
+    const {host, port} = config.app;
+    await new Promise<void>(resolve => this._server.listen({port}, resolve));
+    logger.info(`⚡️ Express running at http://${host}:${port}`);
+    this._started = true;
+  }
+}

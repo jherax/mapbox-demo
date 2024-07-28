@@ -3,13 +3,17 @@ import '../../__mocks__/apollo';
 import {type Server} from 'http';
 import {agent as request} from 'supertest';
 
-import {initServer} from '../../server';
+import {NodeServer} from '../../server';
+import initApollo from '../../server/apollo';
 import {type CitiesResponse} from '../resolvers';
 
+let appInstance: NodeServer;
 let server: Server;
 
 beforeAll(async () => {
-  server = await initServer();
+  const apollo = await initApollo();
+  appInstance = new NodeServer(apollo);
+  server = appInstance.server;
 });
 
 afterAll(() => {

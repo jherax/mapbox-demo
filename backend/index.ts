@@ -1,14 +1,10 @@
-import {initServer, startServer} from './server';
+import {NodeServer} from './server';
+import initApollo from './server/apollo';
 import logger from './utils/logger';
 
-/**
- * The initServer() function will initialize the
- * server (starts the caches, finalizes plugin registration) but does not start
- * the server. This is what you will use in your tests. The initDb() function
- * will actually start the server. This is what you will use in our main
- * entry-point for the server.
- */
-initServer().then(startServer);
+initApollo()
+  .then(apollo => new NodeServer(apollo))
+  .then(nodeServer => nodeServer.start());
 
 // Catch unhandling rejected promises
 process.on('unhandledRejection', reason => {

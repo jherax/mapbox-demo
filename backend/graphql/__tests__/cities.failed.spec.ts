@@ -3,8 +3,10 @@ import '../../__mocks__/apollo';
 import {type Server} from 'http';
 import request from 'supertest';
 
-import {initServer} from '../../server';
+import {NodeServer} from '../../server';
+import initApollo from '../../server/apollo';
 
+let appInstance: NodeServer;
 let server: Server;
 
 const postGraphQL = (data: Parameters<request.Request['send']>[0]) =>
@@ -13,7 +15,9 @@ const postGraphQL = (data: Parameters<request.Request['send']>[0]) =>
   );
 
 beforeAll(async () => {
-  server = await initServer();
+  const apollo = await initApollo();
+  appInstance = new NodeServer(apollo);
+  server = appInstance.server;
 });
 
 afterAll(() => {
