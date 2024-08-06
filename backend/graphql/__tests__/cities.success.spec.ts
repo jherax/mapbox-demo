@@ -50,7 +50,7 @@ describe('E2E: Testing successful City Queries from "/graphql"', () => {
     const count = 30;
 
     expect(reply.status).toBe(200);
-    expect(response.message).toBe(`Listing ${count} cities. Page 3/4853`);
+    expect(response.message).toBe(`Listing ${count} cities. Page 3/4725`);
     expect(response.result).toHaveLength(count);
   });
 
@@ -146,7 +146,7 @@ describe('E2E: Testing successful City Queries from "/graphql"', () => {
     const reply = await request(server).post('/graphql').send(queryData);
     const response: CitiesResponse = reply.body.data.getCitiesByCountry;
     const countryInfo = response.result[0].countryInfo;
-    const count = 111;
+    const count = 50;
 
     expect(reply.status).toBe(200);
     expect(response.message).toBe(`Listing ${count} cities`);

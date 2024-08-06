@@ -6,6 +6,7 @@ import {type ApolloServer} from '@apollo/server';
 import {expressMiddleware} from '@apollo/server/express4';
 import cors from 'cors';
 import express, {type Express} from 'express';
+import helmet from 'helmet';
 
 import logger from '../utils/logger';
 import config, {isProd} from './config';
@@ -20,8 +21,6 @@ export class NodeServer {
     this._app = express();
     this._server = http.createServer(this._app);
     this._apollo = apolloServer;
-
-    // this.config()
     this.routerConfig();
   }
 
@@ -35,8 +34,10 @@ export class NodeServer {
 
     this._app.use(
       '/graphql',
-      cors<cors.CorsRequest>(),
       express.json(),
+      cors<cors.CorsRequest>(),
+      helmet({contentSecurityPolicy: isProd ? undefined : false}),
+
       /**
        * expressMiddleware accepts the same arguments:
        * an Apollo Server instance and optional configuration options.
